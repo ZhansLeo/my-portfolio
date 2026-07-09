@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "赵寒石 | 个人主页",
-  description: "赵寒石的个人主页 - 分享兴趣性格与专业能力",
+  description: "赵寒石 | 南京大学 · 软件工程与工商管理双学位 · 个人主页",
 };
 
 export default function RootLayout({
