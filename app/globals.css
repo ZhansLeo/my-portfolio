@@ -68,3 +68,13 @@ body {
 .reveal.revealed {
   animation: fade-up 0.6s ease-out forwards;
 }
+
+@keyframes float-glow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+}

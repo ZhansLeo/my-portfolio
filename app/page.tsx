@@ -20,19 +20,50 @@ export default function Home() {
       </Reveal>
 
       <Reveal>
-        <section className="mb-28">
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
-            <span className="text-indigo-400/40">01</span>
+        <section className="relative mb-28 overflow-hidden rounded-2xl px-6 py-10 md:px-10">
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <div
+              className="absolute top-[10%] left-[15%] h-[500px] w-[500px] rounded-full opacity-30 blur-[100px]"
+              style={{
+                background:
+                  "radial-gradient(circle, #6366f1 0%, transparent 70%)",
+                animation: "float-glow 8s ease-in-out infinite",
+              }}
+            />
+            <div
+              className="absolute top-[40%] right-[10%] h-[600px] w-[600px] rounded-full opacity-25 blur-[120px]"
+              style={{
+                background:
+                  "radial-gradient(circle, #a855f7 0%, transparent 70%)",
+                animation: "float-glow 12s ease-in-out infinite 2s",
+              }}
+            />
+            <div
+              className="absolute bottom-[5%] left-[30%] h-[450px] w-[450px] rounded-full opacity-20 blur-[90px]"
+              style={{
+                background:
+                  "radial-gradient(circle, #ec4899 0%, transparent 70%)",
+                animation: "float-glow 10s ease-in-out infinite 4s",
+              }}
+            />
+          </div>
+          <p className="mb-2 font-mono text-xs tracking-[0.2em] text-indigo-300/50 uppercase">
+            ABOUT ME
+          </p>
+          <h2 className="mb-8 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
+            <span className="text-indigo-400/60">01</span>
             <span className="h-px flex-1 bg-white/5" />
-            关于我
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent -rotate-[2deg] text-2xl font-bold">
+              关于我
+            </span>
           </h2>
-          <div className="space-y-4 text-sm leading-relaxed text-white/60 md:text-base">
+          <div className="space-y-6 text-sm leading-relaxed text-white/60 md:text-base">
             <p>
               你好，我是赵寒石。在大一这一年里，我修读了 C
               语言、Java、Python 以及微观/宏观经济学等跨学科课程。
             </p>
             <p>
-              在学习过程中，我发现自己对<b className="text-white/85">
+              在学习过程中，我发现自己对<b className="text-white/90">
                 如何用软件工程的方法去解决具体的商业/业务问题
               </b>有着浓厚的兴趣。目前，我正在努力克服专业课上的难点，并尝试利用课余时间，通过
               AI 辅助编程和一些动手实践，把课本上的理论变成可以运行的小程序。
@@ -96,10 +127,10 @@ export default function Home() {
                 >
                   {group.icon}
                 </div>
-                <h3 className="mb-3 font-mono text-xs font-semibold text-white/50">
+                <h3 className="mb-3 font-mono text-base font-semibold text-white/50">
                   {group.title}
                 </h3>
-                <ul className="space-y-1.5 text-xs text-white/60">
+                <ul className="space-y-2 text-sm text-white/60">
                   {group.items.map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <span className="h-1 w-1 rounded-full bg-indigo-400/40" />
