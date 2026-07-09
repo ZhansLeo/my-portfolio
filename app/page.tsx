@@ -2,16 +2,18 @@ import Reveal from "./components/reveal";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <div className="relative mx-auto max-w-3xl px-6 py-16 md:py-24">
+      <div className="nebula-glow" aria-hidden="true" />
+
       <Reveal>
-        <header className="mb-28">
-          <p className="mb-2 font-mono text-xs tracking-[0.2em] text-gray-400 uppercase">
+        <header className="relative mb-28">
+          <p className="mb-2 font-mono text-xs tracking-[0.2em] text-indigo-300/50 uppercase">
             PORTFOLIO / V1
           </p>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-800 md:text-5xl">
-            赵寒石
+          <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+            <span className="text-gradient">赵寒石</span>
           </h1>
-          <p className="text-base text-gray-500 md:text-lg">
+          <p className="text-base text-indigo-200/50 md:text-lg">
             南京大学 · 软件工程与工商管理双学位 · 准大二
           </p>
         </header>
@@ -19,18 +21,18 @@ export default function Home() {
 
       <Reveal>
         <section className="mb-28">
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-gray-400">
-            <span className="text-gray-300">01</span>
-            <span className="h-px flex-1 bg-gray-200" />
+          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
+            <span className="text-indigo-400/40">01</span>
+            <span className="h-px flex-1 bg-white/5" />
             关于我
           </h2>
-          <div className="space-y-4 text-sm leading-relaxed text-gray-600 md:text-base">
+          <div className="space-y-4 text-sm leading-relaxed text-white/60 md:text-base">
             <p>
               你好，我是赵寒石。在大一这一年里，我修读了 C
               语言、Java、Python 以及微观/宏观经济学等跨学科课程。
             </p>
             <p>
-              在学习过程中，我发现自己对<b className="text-gray-800">
+              在学习过程中，我发现自己对<b className="text-white/85">
                 如何用软件工程的方法去解决具体的商业/业务问题
               </b>有着浓厚的兴趣。目前，我正在努力克服专业课上的难点，并尝试利用课余时间，通过
               AI 辅助编程和一些动手实践，把课本上的理论变成可以运行的小程序。
@@ -44,15 +46,17 @@ export default function Home() {
 
       <Reveal stagger={0.1}>
         <section className="mb-28">
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-gray-400">
-            <span className="text-gray-300">02</span>
-            <span className="h-px flex-1 bg-gray-200" />
+          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
+            <span className="text-indigo-400/40">02</span>
+            <span className="h-px flex-1 bg-white/5" />
             技能
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
                 title: "编程与开发基础",
+                icon: "💻",
+                chipColor: "bg-indigo-500/20 text-indigo-300",
                 items: [
                   "C / Java / Python",
                   "面向对象编程 (OOP)",
@@ -62,6 +66,8 @@ export default function Home() {
               },
               {
                 title: "软件工程与业务分析",
+                icon: "📋",
+                chipColor: "bg-violet-500/20 text-violet-300",
                 items: [
                   "需求工程 & 商业模式画布",
                   "PRD / 业务流程图",
@@ -71,6 +77,8 @@ export default function Home() {
               },
               {
                 title: "商科与数据处理",
+                icon: "📊",
+                chipColor: "bg-purple-500/20 text-purple-300",
                 items: [
                   "微观/宏观经济学",
                   "Python 数据清洗",
@@ -81,15 +89,20 @@ export default function Home() {
             ].map((group) => (
               <div
                 key={group.title}
-                className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                className="rounded-2xl bg-white/5 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-white/8"
               >
-                <h3 className="mb-3 font-mono text-xs font-semibold text-gray-500">
+                <div
+                  className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl text-lg ${group.chipColor}`}
+                >
+                  {group.icon}
+                </div>
+                <h3 className="mb-3 font-mono text-xs font-semibold text-white/50">
                   {group.title}
                 </h3>
-                <ul className="space-y-1.5 text-xs text-gray-500">
+                <ul className="space-y-1.5 text-xs text-white/60">
                   {group.items.map((item) => (
                     <li key={item} className="flex items-center gap-2">
-                      <span className="h-1 w-1 rounded-full bg-gray-300" />
+                      <span className="h-1 w-1 rounded-full bg-indigo-400/40" />
                       {item}
                     </li>
                   ))}
@@ -102,9 +115,9 @@ export default function Home() {
 
       <Reveal stagger={0.15}>
         <section className="mb-28">
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-gray-400">
-            <span className="text-gray-300">03</span>
-            <span className="h-px flex-1 bg-gray-200" />
+          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
+            <span className="text-indigo-400/40">03</span>
+            <span className="h-px flex-1 bg-white/5" />
             项目
           </h2>
           <div className="space-y-6">
@@ -137,27 +150,27 @@ export default function Home() {
             ].map((project) => (
               <div
                 key={project.name}
-                className="rounded-lg border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                className="rounded-2xl bg-white/5 p-8 transition-all duration-300 hover:scale-[1.02] hover:bg-white/8"
               >
                 <div className="mb-1 flex flex-wrap items-center gap-2">
-                  <h3 className="font-semibold text-gray-800">
+                  <h3 className="font-semibold text-white/85">
                     {project.name}
                   </h3>
-                  <span className="font-mono text-xs text-gray-400">
+                  <span className="font-mono text-xs text-white/30">
                     {project.subtitle}
                   </span>
                 </div>
-                <p className="mb-2 text-sm leading-relaxed text-gray-600">
+                <p className="mb-2 text-sm leading-relaxed text-white/60">
                   {project.work}
                 </p>
-                <p className="mb-3 text-xs italic leading-relaxed text-gray-400">
+                <p className="mb-3 text-xs italic leading-relaxed text-white/35">
                   {project.insight}
                 </p>
                 <div className="flex flex-wrap items-center gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 font-mono text-[10px] text-gray-500"
+                      className="rounded-full border border-indigo-400/20 bg-indigo-500/10 px-2.5 py-0.5 font-mono text-[10px] text-indigo-200"
                     >
                       {tag}
                     </span>
@@ -167,7 +180,7 @@ export default function Home() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-auto font-mono text-xs text-blue-600 underline underline-offset-2 transition-colors hover:text-blue-500"
+                      className="ml-auto font-mono text-xs text-indigo-300 underline underline-offset-2 transition-colors hover:text-indigo-200"
                     >
                       体验 →
                     </a>
@@ -181,37 +194,37 @@ export default function Home() {
 
       <Reveal>
         <footer>
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-gray-400">
-            <span className="text-gray-300">04</span>
-            <span className="h-px flex-1 bg-gray-200" />
+          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
+            <span className="text-indigo-400/40">04</span>
+            <span className="h-px flex-1 bg-white/5" />
             联系方式
           </h2>
-          <div className="flex flex-col gap-2 font-mono text-sm text-gray-500">
+          <div className="flex flex-col gap-2 font-mono text-sm text-white/50">
             <p>
-              <span className="text-gray-400">tel</span>{" "}
+              <span className="text-white/30">tel</span>{" "}
               <a
                 href="tel:+8617512666050"
-                className="text-gray-600 transition-colors hover:text-blue-600"
+                className="transition-colors hover:text-indigo-300"
               >
                 +86 175 1266 6050
               </a>
             </p>
             <p>
-              <span className="text-gray-400">mail</span>{" "}
+              <span className="text-white/30">mail</span>{" "}
               <a
                 href="mailto:1061124482@qq.com"
-                className="text-gray-600 transition-colors hover:text-blue-600"
+                className="transition-colors hover:text-indigo-300"
               >
                 1061124482@qq.com
               </a>
             </p>
             <p>
-              <span className="text-gray-400">github</span>{" "}
+              <span className="text-white/30">github</span>{" "}
               <a
                 href="https://github.com/ZhansLeo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 transition-colors hover:text-blue-600"
+                className="transition-colors hover:text-indigo-300"
               >
                 ZhansLeo
               </a>
