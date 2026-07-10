@@ -4,7 +4,7 @@
   "private": true,
 "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-blog.js",
+    "prebuild": "node scripts/generate-blog.js && node scripts/parse-rss.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

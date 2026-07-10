@@ -7,6 +7,7 @@ const links = [
   { href: "/", label: "首页" },
   { href: "/about", label: "关于我" },
   { href: "/blog", label: "博客" },
+  { href: "/rss-reader", label: "RSS" },
   { href: "/papers", label: "Papers" },
   { href: "/wiki", label: "Wiki" },
 ];
