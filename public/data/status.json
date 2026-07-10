@@ -1,6 +1,28 @@
 {
   "history": [
     {
+      "run_id": "20260710-214426-99f2ab",
+      "timestamp": "2026-07-10T21:44:26.766089+08:00",
+      "counts": {
+        "blog_posts": 4,
+        "wiki_pages": 5,
+        "papers": 10,
+        "pages": 13
+      },
+      "errors": []
+    },
+    {
+      "run_id": "20260710-210513-3ac0f5",
+      "timestamp": "2026-07-10T21:05:13.454274+08:00",
+      "counts": {
+        "blog_posts": 4,
+        "wiki_pages": 5,
+        "papers": 10,
+        "pages": 12
+      },
+      "errors": []
+    },
+    {
       "run_id": "20260710-162314-279a29",
       "timestamp": "2026-07-10T16:23:14.985240+08:00",
       "counts": {
