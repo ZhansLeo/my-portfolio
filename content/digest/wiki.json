@@ -1,0 +1,17 @@
+[
+  {
+    "title": "自定义 Skill",
+    "url": "wiki/pages/skill-reflection",
+    "note": "Skill 本质上是把一套可复用的工作流和约束条件打包成模块，不是简单写 prompt。"
+  },
+  {
+    "title": "验证流程",
+    "url": "wiki/pages/skill-reflection",
+    "note": "写完就验：强制检查 id、title、authors、published、summary、url 六个字段是否齐全，URL 是否来自 arXiv。"
+  },
+  {
+    "title": "arXiv ID 去重",
+    "url": "wiki/pages/skill-reflection",
+    "note": "论文标题常有细微差异，用 arXiv ID 去重比标题去重更可靠，是实际操作中的关键经验。"
+  }
+]

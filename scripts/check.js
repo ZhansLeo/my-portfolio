@@ -12,6 +12,7 @@ const REQUIRED_PAGES = [
   "wiki.html",
   "wiki/pages/home.html",
   "wiki/pages/skill-reflection.html",
+  "digest.html",
   "status.html",
   "feed.xml",
   "404.html",

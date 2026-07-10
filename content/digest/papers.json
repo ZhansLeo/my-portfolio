@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Formal Mechanisms for Market Stability in Self-Interested Agent Societies: A Marketplace Simulation Study",
+    "url": "https://arxiv.org/abs/2607.08652v1",
+    "published": "2026-07-09",
+    "note": "研究自利型智能体在社会困境中维持市场稳定所需的形式机制。18个LLM智能体模拟交易，调解机制在对比实验中表现最优，面对最优化对抗攻击仅损失13.3%效用，市场未被击垮。"
+  },
+  {
+    "title": "The Context Access Divide: Interaction-Level Architecture as a Complementary Dimension of Agentic Inequality",
+    "url": "https://arxiv.org/abs/2607.08495v1",
+    "published": "2026-07-09",
+    "note": "提出上下文访问鸿沟概念：AI系统能否自主检索用户知识库中的上下文，决定了知识工作者的实际AI效用。手动附加文档在语料规模增大时导致任务成功率组合式崩溃，动态检索架构不受此影响。"
+  },
+  {
+    "title": "TRACE: A Two-Channel Robust Attribution Watermark via Complementary Embeddings for LLM-Agent Trajectories",
+    "url": "https://arxiv.org/abs/2607.08400v1",
+    "published": "2026-07-09",
+    "note": "提出TRACE水印方案，为LLM智能体轨迹提供双重鲁棒归因：选择通道基于内容自同步以抗删除，计数通道基于轨迹骨架抗重写。无失真、可抗70%步骤删除，且不降低任务成功率。"
+  }
+]

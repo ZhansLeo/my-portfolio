@@ -10,6 +10,7 @@ const links = [
   { href: "/rss-reader", label: "RSS" },
   { href: "/papers", label: "Papers" },
   { href: "/wiki", label: "Wiki" },
+  { href: "/digest", label: "周报" },
   { href: "/status", label: "状态" },
 ];
 
