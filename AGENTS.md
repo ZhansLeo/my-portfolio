@@ -20,3 +20,10 @@
 - Commit messages in Chinese, format: `类型: 简要描述`
   - Types: `feat`(新功能) `fix`(修复) `docs`(文档) `refactor`(重构) `style`(样式调整)
 - Body must describe **what changed from the previous commit**, not vague phrases like "update" or "fix bug"
+
+
+## Others
+1. 只用原生HTML、CSS；禁止外部框架；
+2. 正文宽度最多800px；
+3. HTML采用语义标签；CSS单独文件；
+4. 文件结构规范：页面放在pages文件夹，md文章放在articles文件夹。
