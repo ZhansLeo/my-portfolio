@@ -42,5 +42,6 @@ next-env.d.ts
 
 # generated blog data
 app/blog/posts-data.ts
+app/wiki/pages-data.ts
 public/feed.xml
 data/rss-items/

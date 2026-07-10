@@ -10,6 +10,9 @@ const REQUIRED_PAGES = [
   "rss-reader.html",
   "papers.html",
   "wiki.html",
+  "wiki/pages/home.html",
+  "wiki/pages/skill-reflection.html",
+  "status.html",
   "feed.xml",
   "404.html",
 ];

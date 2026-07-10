@@ -14,6 +14,7 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Generated and script files
     "app/blog/posts-data.ts",
+    "app/wiki/pages-data.ts",
     "scripts/**",
   ]),
 ]);

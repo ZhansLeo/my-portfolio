@@ -1,0 +1,26 @@
+{
+  "history": [
+    {
+      "run_id": "20260710-141451-13c05a",
+      "timestamp": "2026-07-10T14:14:51.025596+08:00",
+      "counts": {
+        "blog_posts": 1,
+        "wiki_pages": 2,
+        "papers": 10,
+        "pages": 8
+      },
+      "errors": []
+    },
+    {
+      "run_id": "20260710-141227-5708e1",
+      "timestamp": "2026-07-10T14:12:27.230364+08:00",
+      "counts": {
+        "blog_posts": 1,
+        "wiki_pages": 2,
+        "papers": 10,
+        "pages": 8
+      },
+      "errors": []
+    }
+  ]
+}
