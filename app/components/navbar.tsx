@@ -11,6 +11,7 @@ const links = [
   { href: "/papers", label: "Papers" },
   { href: "/wiki", label: "Wiki" },
   { href: "/digest", label: "周报" },
+  { href: "/jd-match", label: "岗位匹配" },
   { href: "/status", label: "状态" },
 ];
 

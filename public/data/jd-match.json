@@ -1,0 +1,247 @@
+[
+  {
+    "company": "美团",
+    "position": "后端开发工程师",
+    "source": "knowledge_base",
+    "matched": [
+      {
+        "skill": "Git",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "Java",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "Python",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "设计模式",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "OOP",
+        "category": "JD 要求",
+        "confidence": 1.0
+      }
+    ],
+    "missing": [
+      {
+        "skill": "Docker",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Go",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Kafka",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Kubernetes",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Linux",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "MySQL",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Redis",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "RocketMQ",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "RPC",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Spring",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Spring Boot",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "分布式系统",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "微服务",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "数据库",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "数据结构",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "消息队列",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "算法",
+        "category": "JD 要求"
+      }
+    ],
+    "partial": [],
+    "score": 23,
+    "analysis": [
+      "已具备：Git、Java、Python、设计模式、OOP",
+      "建议学习：Docker、Go、Kafka、Kubernetes、Linux"
+    ],
+    "found_keywords": [
+      "docker",
+      "git",
+      "golang",
+      "java",
+      "kafka",
+      "kubernetes",
+      "linux",
+      "mysql",
+      "python",
+      "redis",
+      "rocketmq",
+      "rpc",
+      "spring",
+      "springboot",
+      "分布式",
+      "微服务",
+      "数据库",
+      "数据结构",
+      "消息队列",
+      "算法",
+      "设计模式",
+      "面向对象"
+    ]
+  },
+  {
+    "company": "字节跳动",
+    "position": "前端开发实习生",
+    "source": "knowledge_base",
+    "matched": [
+      {
+        "skill": "CSS",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "Git",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "JavaScript",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "Next.js",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "Tailwind CSS",
+        "category": "JD 要求",
+        "confidence": 1.0
+      },
+      {
+        "skill": "TypeScript",
+        "category": "JD 要求",
+        "confidence": 1.0
+      }
+    ],
+    "missing": [
+      {
+        "skill": "HTML",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "HTTP",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Node.js",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "React",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Vue",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "Webpack",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "前端性能优化",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "响应式设计",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "数据结构",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "浏览器原理",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "算法",
+        "category": "JD 要求"
+      },
+      {
+        "skill": "计算机网络",
+        "category": "JD 要求"
+      }
+    ],
+    "partial": [],
+    "score": 33,
+    "analysis": [
+      "已具备：CSS、Git、JavaScript、Next.js、Tailwind CSS",
+      "建议学习：HTML、HTTP、Node.js、React、Vue"
+    ],
+    "found_keywords": [
+      "css",
+      "git",
+      "html",
+      "http",
+      "javascript",
+      "next.js",
+      "node",
+      "react",
+      "tailwind",
+      "typescript",
+      "vue",
+      "webpack",
+      "前端性能",
+      "响应式",
+      "数据结构",
+      "浏览器原理",
+      "算法",
+      "计算机网络"
+    ]
+  }
+]

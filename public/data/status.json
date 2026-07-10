@@ -1,6 +1,61 @@
 {
   "history": [
     {
+      "run_id": "20260710-151545-537378",
+      "timestamp": "2026-07-10T15:15:45.341545+08:00",
+      "counts": {
+        "blog_posts": 1,
+        "wiki_pages": 2,
+        "papers": 10,
+        "pages": 11
+      },
+      "errors": []
+    },
+    {
+      "run_id": "20260710-151002-67c941",
+      "timestamp": "2026-07-10T15:10:02.725159+08:00",
+      "counts": {
+        "blog_posts": 1,
+        "wiki_pages": 2,
+        "papers": 10,
+        "pages": 11
+      },
+      "errors": []
+    },
+    {
+      "run_id": "20260710-150136-036259",
+      "timestamp": "2026-07-10T15:01:36.981700+08:00",
+      "counts": {
+        "blog_posts": 1,
+        "wiki_pages": 2,
+        "papers": 10,
+        "pages": 10
+      },
+      "errors": []
+    },
+    {
+      "run_id": "20260710-145205-baf861",
+      "timestamp": "2026-07-10T14:52:05.670216+08:00",
+      "counts": {
+        "blog_posts": 1,
+        "wiki_pages": 2,
+        "papers": 10,
+        "pages": 10
+      },
+      "errors": []
+    },
+    {
+      "run_id": "20260710-144656-ee94a0",
+      "timestamp": "2026-07-10T14:46:56.349819+08:00",
+      "counts": {
+        "blog_posts": 1,
+        "wiki_pages": 2,
+        "papers": 10,
+        "pages": 10
+      },
+      "errors": []
+    },
+    {
       "run_id": "20260710-143836-8931a6",
       "timestamp": "2026-07-10T14:38:36.132847+08:00",
       "counts": {

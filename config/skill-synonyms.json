@@ -1,0 +1,29 @@
+{
+  "synonyms": {
+    "Python": ["python", "py", "python3"],
+    "Java": ["java", "jvm"],
+    "C": ["c语言", "c/c++", "c++"],
+    "JavaScript": ["js", "javascript", "typescript", "ts"],
+    "Next.js": ["nextjs", "next.js"],
+    "Tailwind CSS": ["tailwind", "css", "样式"],
+    "RAG": ["检索增强生成", "rag", "向量检索", "知识库"],
+    "LLM": ["大语言模型", "大模型", "llm", "gpt", "语言模型"],
+    "PRD": ["需求文档", "产品需求", "需求分析"],
+    "K-means": ["聚类", "kmeans", "机器学习"],
+    "数据可视化": ["可视化", "matplotlib", "plotly", "图表"],
+    "OOP": ["面向对象", "设计模式", "oop"],
+    "Prompt 调试": ["prompt", "提示词", "提示工程"],
+    "业务流程图": ["流程图", "业务流程", "sop"],
+    "Git": ["git", "版本控制", "github"],
+    "SQL": ["sql", "mysql", "数据库", "postgresql"],
+    "Linux": ["linux", "命令行", "shell"],
+    "Docker": ["docker", "容器", "容器化"],
+    "Kubernetes": ["k8s", "kubernetes", "容器编排"],
+    "Redis": ["redis", "缓存"],
+    "消息队列": ["mq", "kafka", "rabbitmq", "消息中间件"],
+    "微服务": ["微服务", "分布式", "rpc"],
+    "算法": ["数据结构", "算法", "leetcode"],
+    "计算机网络": ["网络", "http", "tcp", "协议"],
+    "操作系统": ["os", "操作系统", "进程", "线程"]
+  }
+}
