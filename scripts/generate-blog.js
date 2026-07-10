@@ -96,6 +96,129 @@ function escapeTemplate(str) {
     .replace(/\$/g, "\\$");
 }
 
+function escapeXML(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function formatPubDate(dateStr) {
+  const [year, month, day] = dateStr.split("-").map(Number);
+  const d = new Date(Date.UTC(year, month - 1, day));
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  ];
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${days[d.getUTCDay()]}, ${pad(day)} ${months[month - 1]} ${year} 00:00:00 +0800`;
+}
+
+function formatNowPubDate() {
+  const now = new Date();
+  const offsetMs = 8 * 60 * 60 * 1000;
+  const local = new Date(now.getTime() + offsetMs);
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  ];
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${days[local.getUTCDay()]}, ${pad(local.getUTCDate())} ${months[local.getUTCMonth()]} ${local.getUTCFullYear()} ${pad(local.getUTCHours())}:${pad(local.getUTCMinutes())}:${pad(local.getUTCSeconds())} +0800`;
+}
+
+function validateXml(xml) {
+  const tagPattern = /<\/?([\w][\w.:-]*)(\s[^>]*)?\/?>/g;
+  const stack = [];
+  let match;
+
+  while ((match = tagPattern.exec(xml)) !== null) {
+    const fullTag = match[0];
+    const tagName = match[1];
+
+    if (fullTag.startsWith("</")) {
+      if (stack.length === 0 || stack[stack.length - 1] !== tagName) {
+        throw new Error(
+          `XML validation failed: mismatched closing tag </${tagName}>, ` +
+          `expected </${stack[stack.length - 1] || "none"}>`
+        );
+      }
+      stack.pop();
+    } else if (!fullTag.endsWith("/>") && !fullTag.endsWith("?>")) {
+      stack.push(tagName);
+    }
+  }
+
+  if (stack.length > 0) {
+    throw new Error(`XML validation failed: unclosed tags: ${stack.join(", ")}`);
+  }
+
+  const textContent = xml.replace(/<[^>]*>/g, "");
+  const badAmp = /&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)/;
+  if (badAmp.test(textContent)) {
+    throw new Error("XML validation failed: unescaped ampersand in text content");
+  }
+
+  return true;
+}
+
+function generateRSS(posts) {
+  const BASE_URL = "https://my-portfolio-d3g4m2j50a17c3d18-1428721206.tcloudbaseapp.com";
+  const now = formatNowPubDate();
+
+  const sorted = [...posts]
+    .filter((p) => p.date)
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  const items = sorted.map((p) => {
+    const link = `${BASE_URL}/blog/posts/${p.slug}`;
+    const pubDate = formatPubDate(p.date);
+    return [
+      "    <item>",
+      `      <title>${escapeXML(p.title)}</title>`,
+      `      <link>${escapeXML(link)}</link>`,
+      `      <guid isPermaLink="true">${escapeXML(link)}</guid>`,
+      `      <pubDate>${pubDate}</pubDate>`,
+      `      <description>${escapeXML(p.description)}</description>`,
+      "    </item>",
+    ].join("\n");
+  });
+
+  const xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    "  <channel>",
+    `    <title>${escapeXML("赵寒石的博客")}</title>`,
+    `    <link>${escapeXML(BASE_URL)}</link>`,
+    `    <description>${escapeXML("赵寒石的个人博客——记录学习、实验和思考。")}</description>`,
+    `    <language>zh-CN</language>`,
+    `    <lastBuildDate>${now}</lastBuildDate>`,
+    `    <atom:link href="${escapeXML(BASE_URL + "/feed.xml")}" rel="self" type="application/rss+xml"/>`,
+    ...items,
+    "  </channel>",
+    "</rss>",
+    "",
+  ].join("\n");
+
+  validateXml(xml);
+  console.log("XML validation passed.");
+
+  const OUT_DIR = path.join(__dirname, "..", "public");
+  if (!fs.existsSync(OUT_DIR)) {
+    fs.mkdirSync(OUT_DIR, { recursive: true });
+  }
+  const outPath = path.join(OUT_DIR, "feed.xml");
+  fs.writeFileSync(outPath, xml, "utf-8");
+
+  console.log(`Generated RSS feed with ${sorted.length} item(s) to ${outPath}`);
+  for (const p of sorted) {
+    console.log(`  - ${p.title} (${p.date})`);
+  }
+}
+
 function generate() {
   if (!fs.existsSync(POSTS_DIR)) {
     console.log("content/posts directory not found, skipping blog generation.");
@@ -162,6 +285,8 @@ function generate() {
   for (const p of posts) {
     console.log(`  - ${p.slug} (${p.date})`);
   }
+
+  generateRSS(posts);
 }
 
 generate();

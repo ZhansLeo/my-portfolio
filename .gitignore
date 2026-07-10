@@ -42,3 +42,4 @@ next-env.d.ts
 
 # generated blog data
 app/blog/posts-data.ts
+public/feed.xml
