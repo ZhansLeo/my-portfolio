@@ -27,5 +27,8 @@ jobs:
       - name: Build
         run: npm run prebuild && npx next build
 
+      - name: Check
+        run: npm run check
+
       - name: Deploy
         run: tcb hosting deploy out -e my-portfolio-d3g4m2j50a17c3d18

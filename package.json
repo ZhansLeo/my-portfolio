@@ -6,9 +6,10 @@
     "dev": "next dev",
     "prebuild": "node scripts/generate-blog.js && node scripts/parse-rss.js",
     "build": "next build",
+    "check": "node scripts/check.js",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run prebuild && npm run build && tcb hosting deploy out -e my-portfolio-d3g4m2j50a17c3d18"
+    "deploy": "npm run prebuild && npm run build && npm run check && tcb hosting deploy out -e my-portfolio-d3g4m2j50a17c3d18"
   },
   "dependencies": {
     "next": "16.2.10",
