@@ -4,7 +4,7 @@
   "private": true,
 "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-blog.js && node scripts/generate-wiki.js && node scripts/parse-rss.js && python scripts/build_status.py && python scripts/build_digest.py",
+    "prebuild": "node scripts/generate-blog.js && node scripts/generate-wiki.js && node scripts/parse-rss.js && python scripts/build_status.py && python scripts/build_digest.py && python scripts/build_agent.py",
     "build": "next build",
     "check": "node scripts/check.js",
     "start": "next start",

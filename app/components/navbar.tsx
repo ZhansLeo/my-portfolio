@@ -13,6 +13,7 @@ const links = [
   { href: "/digest", label: "周报" },
   { href: "/jd-match", label: "岗位匹配" },
   { href: "/status", label: "状态" },
+  { href: "/agent", label: "Agent" },
 ];
 
 export default function Navbar() {

@@ -1,0 +1,22 @@
+[
+  {
+    "id": 4,
+    "trigger": "agent_loop",
+    "rule": "当用户询问 Agent Loop 概念时，从 Wiki 中检索相关内容并返回"
+  },
+  {
+    "id": 3,
+    "trigger": "weekly_summary",
+    "rule": "当用户请求课程总结时，从 Wiki 中提取最近一周的学习记录并汇总"
+  },
+  {
+    "id": 2,
+    "trigger": "收到课程咨询邮件",
+    "rule": "先提供课程页面链接，再询问班级信息"
+  },
+  {
+    "id": 1,
+    "trigger": "test_greeting",
+    "rule": "当用户发送'你好'时，回复'你好！我是赵寒石的 24 小时个人 Agent。'"
+  }
+]
