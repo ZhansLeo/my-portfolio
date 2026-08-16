@@ -166,7 +166,7 @@ function validateXml(xml) {
 }
 
 function generateRSS(posts) {
-  const BASE_URL = "https://my-portfolio-d3g4m2j50a17c3d18-1428721206.tcloudbaseapp.com";
+  const BASE_URL = "https://zhansleo.github.io/my-portfolio";
   const now = formatNowPubDate();
 
   const sorted = [...posts]
@@ -174,7 +174,7 @@ function generateRSS(posts) {
     .sort((a, b) => b.date.localeCompare(a.date));
 
   const items = sorted.map((p) => {
-    const link = `${BASE_URL}/blog/posts/${p.slug}`;
+    const link = `${BASE_URL}/blog/posts/${p.slug}/`;
     const pubDate = formatPubDate(p.date);
     return [
       "    <item>",

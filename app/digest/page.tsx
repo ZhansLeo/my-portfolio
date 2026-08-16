@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "../components/reveal";
 import digestData from "../../public/data/digest.json";
 
@@ -75,7 +76,7 @@ export default function DigestPage() {
         <div className="space-y-4">
           {data.wiki.map((entry) => (
             <Reveal key={entry.title} stagger={0.1}>
-              <a
+              <Link
                 href={`/${entry.url}`}
                 className="block rounded-2xl bg-white/5 p-5 transition-all duration-300 hover:scale-[1.02] hover:bg-white/8"
               >
@@ -90,7 +91,7 @@ export default function DigestPage() {
                 <p className="text-sm leading-relaxed text-white/45">
                   {entry.note}
                 </p>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>

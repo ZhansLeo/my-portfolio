@@ -3,6 +3,7 @@ const path = require("path");
 
 const WIKI_DIR = path.join(__dirname, "..", "content", "wiki");
 const OUT_FILE = path.join(__dirname, "..", "app", "wiki", "pages-data.ts");
+const BASE_PATH = "/my-portfolio";
 
 function parseFrontmatter(raw) {
   const lines = raw.trim().split("\n");
@@ -74,7 +75,7 @@ function inlineMd(text) {
       if (href.startsWith("http")) {
         return `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`;
       }
-      return `<a href="/wiki/pages/${href}" class="wiki-link">${label}</a>`;
+      return `<a href="${BASE_PATH}/wiki/pages/${href}/" class="wiki-link">${label}</a>`;
     })
     .replace(/`([^`]+)`/g, "<code>$1</code>");
 }

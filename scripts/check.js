@@ -4,16 +4,16 @@ const path = require("path");
 const OUT_DIR = path.join(__dirname, "..", "out");
 const REQUIRED_PAGES = [
   "index.html",
-  "about.html",
-  "blog.html",
-  "blog/posts/hello-agent.html",
-  "rss-reader.html",
-  "papers.html",
-  "wiki.html",
-  "wiki/pages/home.html",
-  "wiki/pages/skill-reflection.html",
-  "digest.html",
-  "status.html",
+  "about/index.html",
+  "blog/index.html",
+  "blog/posts/hello-agent/index.html",
+  "rss-reader/index.html",
+  "papers/index.html",
+  "wiki/index.html",
+  "wiki/pages/home/index.html",
+  "wiki/pages/skill-reflection/index.html",
+  "digest/index.html",
+  "status/index.html",
   "feed.xml",
   "404.html",
 ];
@@ -49,14 +49,17 @@ function resolveLink(href, baseFile) {
 
   let target;
   if (href.startsWith("/")) {
-    target = href.replace(/^\//, "");
+    // Strip the GitHub Pages basePath prefix (/my-portfolio) so hrefs resolve
+    // against the out/ directory.
+    target = href.replace(/^\/my-portfolio/, "").replace(/^\//, "");
   } else {
     target = path.join(path.dirname(baseFile), href).replace(/\\/g, "/");
   }
 
   if (!target || target === ".") return "index.html";
+  target = target.replace(/\/+$/, "");
   if (!target.endsWith(".html") && !target.includes(".")) {
-    return target.replace(/\/$/, "") + ".html";
+    return `${target}/index.html`;
   }
   return target;
 }
