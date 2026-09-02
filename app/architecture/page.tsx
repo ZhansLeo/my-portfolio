@@ -180,7 +180,7 @@ export default function ArchitecturePage() {
   const elements = architectureData as Element[];
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <div className="site-page document-page mx-auto max-w-3xl px-6 py-16 md:py-24">
       <Reveal>
         <div className="mb-12">
           {elements

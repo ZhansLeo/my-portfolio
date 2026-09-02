@@ -6,7 +6,8 @@ const projects = [
     kind: "当前学习重点",
     description: "围绕记忆、审批、事件通道与任务执行搭建个人 Agent，尝试把大模型从一次问答推进到可控、可追踪的持续工作流。",
     detail: "Python · Agent 架构 · Memory · Human-in-the-loop",
-    href: "/agent",
+    href: "/architecture",
+    action: "查看技术架构",
     featured: true,
   },
   {
@@ -14,7 +15,6 @@ const projects = [
     kind: "AI 科研实践",
     description: "将线下调解 SOP 转化为多轮对话逻辑，研究 RAG 在法律场景中的可靠性，以及如何减少模型回答偏差。",
     detail: "RAG · Embedding · 多轮对话 · 法律场景",
-    href: "/papers",
   },
   {
     name: "Cartify 智能销售副驾",
@@ -22,6 +22,7 @@ const projects = [
     description: "把销售经验整理为知识引导，以状态机控制对话阶段，并完成从 PRD、前端到大模型接口的产品闭环。",
     detail: "Next.js · LLM · 状态机 · Serverless",
     href: "https://cartifyv3.vercel.app/",
+    action: "体验项目",
     external: true,
   },
   {
@@ -29,7 +30,6 @@ const projects = [
     kind: "商业与数据",
     description: "用聚类算法把抽象的客户分层理论转化为可观察的数据结果，练习数据清洗、分析和可视化。",
     detail: "Python · K-means · Plotly · RFM",
-    href: "/about",
   },
 ];
 
@@ -100,12 +100,15 @@ export default function Home() {
             {projects.map((project) => {
               const className = `project-item${project.featured ? " project-featured" : ""}`;
               const content = <>
-                <div className="project-topline"><span>{project.kind}</span><span className="project-open" aria-hidden="true">↗</span></div>
+                <div className="project-topline"><span>{project.kind}</span></div>
                 <h3>{project.name}</h3><p>{project.description}</p><div className="project-detail">{project.detail}</div>
               </>;
-              return project.external
-                ? <a key={project.name} className={className} href={project.href} target="_blank" rel="noreferrer">{content}</a>
-                : <Link key={project.name} className={className} href={project.href}>{content}</Link>;
+              return <article key={project.name} className={className}>
+                {content}
+                {project.href && (project.external
+                  ? <a className="project-action" href={project.href} target="_blank" rel="noreferrer">{project.action}</a>
+                  : <Link className="project-action" href={project.href}>{project.action}</Link>)}
+              </article>;
             })}
           </div>
         </section>

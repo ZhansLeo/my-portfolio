@@ -1,6 +1,6 @@
 # 赵寒石 | 个人主页
 
-南京大学 软件工程与工商管理双学位 · 准大二 的个人网站。记录学习、实验与思考，包含博客、Wiki 知识库、学习周报、RSS 阅读、岗位匹配等技术模块。
+南京大学 软件工程与工商管理双学位 · 准大二 的个人网站。记录软件工程实践、AI 研究与思考，包含博客、Wiki 知识库、学习周报、RSS 阅读等技术模块。
 
 **线上地址**：https://zhansleo.github.io/my-portfolio/
 
@@ -14,7 +14,6 @@
 | Papers | 论文收藏 |
 | RSS | 订阅外部技术源，自动汇总 `data/rss-items/items.json` |
 | 周报 | 每周论文 + Wiki 精选，数据在 `content/digest/` |
-| 岗位匹配 | 抓取 JD 与个人技能做匹配分析（`scripts/match-jd.py`） |
 | 技术架构 | 24 小时个人 Agent 的设计文档（`docs/architecture.md`） |
 | 状态 | 每次构建自动生成的计数与健康信息 |
 

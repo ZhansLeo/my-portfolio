@@ -19,7 +19,7 @@ export default function DigestPage() {
   const data = digestData as { papers: PaperEntry[]; wiki: WikiEntry[]; generated: string };
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <div className="site-page mx-auto max-w-3xl px-6 py-16 md:py-24">
       <Reveal>
         <p className="mb-2 font-mono text-xs tracking-[0.2em] text-indigo-300/50 uppercase">
           WEEKLY DIGEST

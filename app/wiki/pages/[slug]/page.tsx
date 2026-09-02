@@ -25,7 +25,7 @@ export default async function WikiPage({ params }: Props) {
   if (!page) notFound();
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <div className="site-page document-page mx-auto max-w-3xl px-6 py-16 md:py-24">
       <Reveal>
         <Link
           href="/wiki"
