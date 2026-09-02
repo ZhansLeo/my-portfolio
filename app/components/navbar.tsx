@@ -36,7 +36,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
       href={href}
       className={`rounded-full px-3 py-1.5 font-mono text-xs transition-colors ${
         active
-          ? "text-gradient font-medium"
+          ? "font-medium text-[#a9cbff]"
           : "text-white/40 hover:text-white/70"
       }`}
     >
@@ -90,17 +90,12 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-    setMobileOpen(false);
-  }, [pathname]);
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0a0e27]/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07] bg-[#080c18]/82 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[50rem] items-center justify-between px-4 py-3 md:px-0">
         <Link
           href="/"
-          className="text-gradient font-mono text-sm font-semibold tracking-wide"
+          className="font-mono text-sm font-semibold tracking-wide text-[#eef2ff]"
         >
           赵寒石
         </Link>
@@ -117,7 +112,7 @@ export default function Navbar() {
               onMouseEnter={() => setOpen(true)}
               className={`rounded-full px-3 py-1.5 font-mono text-xs transition-colors ${
                 moreLinks.some((l) => isActive(pathname, l.href))
-                  ? "text-gradient font-medium"
+                  ? "font-medium text-[#a9cbff]"
                   : "text-white/40 hover:text-white/70"
               }`}
             >
@@ -133,7 +128,7 @@ export default function Navbar() {
 
             {open && (
               <div
-                className="absolute right-0 top-full mt-2 w-44 rounded-xl border border-white/10 bg-[#0d1128]/95 p-1.5 shadow-lg shadow-black/30 backdrop-blur-xl"
+                className="absolute right-0 top-full mt-2 w-44 rounded-xl border border-white/10 bg-[#101728]/95 p-1.5 shadow-lg shadow-black/30 backdrop-blur-xl"
                 onMouseLeave={() => setOpen(false)}
               >
                 {moreLinks.map((link, i) => (
@@ -175,7 +170,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-white/5 bg-[#0a0e27]/95 px-6 pb-4 pt-2 md:hidden">
+        <div className="border-t border-white/5 bg-[#080c18]/95 px-6 pb-4 pt-2 md:hidden">
           <div className="flex flex-col gap-0.5">
             {allLinks.map((link) => {
               const active = isActive(pathname, link.href);
@@ -183,6 +178,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => setMobileOpen(false)}
                   className={`rounded-lg px-3 py-2.5 font-mono text-sm transition-colors ${
                     active
                       ? "bg-white/10 text-white"

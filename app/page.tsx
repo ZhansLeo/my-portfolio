@@ -1,268 +1,143 @@
-import Reveal from "./components/reveal";
+import Link from "next/link";
+
+const projects = [
+  {
+    name: "个人 Agent 系统",
+    kind: "当前学习重点",
+    description: "围绕记忆、审批、事件通道与任务执行搭建个人 Agent，尝试把大模型从一次问答推进到可控、可追踪的持续工作流。",
+    detail: "Python · Agent 架构 · Memory · Human-in-the-loop",
+    href: "/agent",
+    featured: true,
+  },
+  {
+    name: "金融纠纷调解机器人",
+    kind: "AI 科研实践",
+    description: "将线下调解 SOP 转化为多轮对话逻辑，研究 RAG 在法律场景中的可靠性，以及如何减少模型回答偏差。",
+    detail: "RAG · Embedding · 多轮对话 · 法律场景",
+    href: "/papers",
+  },
+  {
+    name: "Cartify 智能销售副驾",
+    kind: "工程落地",
+    description: "把销售经验整理为知识引导，以状态机控制对话阶段，并完成从 PRD、前端到大模型接口的产品闭环。",
+    detail: "Next.js · LLM · 状态机 · Serverless",
+    href: "https://cartifyv3.vercel.app/",
+    external: true,
+  },
+  {
+    name: "RFM 客户营销分析",
+    kind: "商业与数据",
+    description: "用聚类算法把抽象的客户分层理论转化为可观察的数据结果，练习数据清洗、分析和可视化。",
+    detail: "Python · K-means · Plotly · RFM",
+    href: "/about",
+  },
+];
+
+const trails = [
+  {
+    title: "软件工程实践",
+    description: "把复杂问题拆成边界清楚、能够验证和持续迭代的系统。",
+    items: ["系统拆解", "Next.js / Python", "状态与数据流"],
+  },
+  {
+    title: "AI 与 LLM",
+    description: "关注 Agent、RAG 与多轮对话，理解模型如何进入真实工作流。",
+    items: ["Agent 架构", "RAG / Embedding", "Prompt 与评估"],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="relative mx-auto max-w-3xl px-6 py-16 md:py-24">
-      <div className="nebula-glow" aria-hidden="true" />
-
-      <Reveal>
-        <header className="relative mb-28">
-          <p className="mb-2 font-mono text-xs tracking-[0.2em] text-indigo-300/50 uppercase">
-            PORTFOLIO / V1
+    <div className="home-shell">
+      <header className="hero" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <p className="hero-status"><span aria-hidden="true" /> 南京大学 · 软件工程 / 工商管理</p>
+          <h1 id="hero-title">让 AI 从回答问题，<br />走向执行任务。</h1>
+          <p className="hero-intro">
+            我是赵寒石。我正在学习如何用软件工程的方法，把 LLM、Agent
+            与真实问题连接起来；也用商业思维判断，什么值得被做出来。
           </p>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-            <span className="text-gradient">赵寒石</span>
-          </h1>
-          <p className="text-base text-indigo-200/50 md:text-lg">
-            南京大学 · 软件工程与工商管理双学位 · 准大二
-          </p>
-        </header>
-      </Reveal>
-
-      <Reveal>
-        <section className="relative mb-28 overflow-hidden rounded-2xl px-6 py-10 md:px-10">
-          <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div
-              className="absolute top-[10%] left-[15%] h-[500px] w-[500px] rounded-full opacity-30 blur-[100px]"
-              style={{
-                background:
-                  "radial-gradient(circle, #6366f1 0%, transparent 70%)",
-                animation: "float-glow 8s ease-in-out infinite",
-              }}
-            />
-            <div
-              className="absolute top-[40%] right-[10%] h-[600px] w-[600px] rounded-full opacity-25 blur-[120px]"
-              style={{
-                background:
-                  "radial-gradient(circle, #a855f7 0%, transparent 70%)",
-                animation: "float-glow 12s ease-in-out infinite 2s",
-              }}
-            />
-            <div
-              className="absolute bottom-[5%] left-[30%] h-[450px] w-[450px] rounded-full opacity-20 blur-[90px]"
-              style={{
-                background:
-                  "radial-gradient(circle, #ec4899 0%, transparent 70%)",
-                animation: "float-glow 10s ease-in-out infinite 4s",
-              }}
-            />
+          <div className="hero-actions">
+            <a className="primary-action" href="#work">查看实践</a>
+            <Link className="text-action" href="/architecture">阅读 Agent 架构</Link>
           </div>
-          <p className="mb-2 font-mono text-xs tracking-[0.2em] text-indigo-300/50 uppercase">
-            ABOUT ME
-          </p>
-          <h2 className="mb-8 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
-            <span className="text-indigo-400/60">01</span>
-            <span className="h-px flex-1 bg-white/5" />
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent -rotate-[2deg] text-2xl font-bold">
-              关于我
-            </span>
-          </h2>
-          <div className="space-y-6 text-sm leading-relaxed text-white/60 md:text-base">
-            <p>
-              你好，我是赵寒石。在大一这一年里，我修读了 C
-              语言、Java、Python 以及微观/宏观经济学等跨学科课程。
-            </p>
-            <p>
-              在学习过程中，我发现自己对<b className="text-white/90">
-                如何用软件工程的方法去解决具体的商业/业务问题
-              </b>有着浓厚的兴趣。目前，我正在努力克服专业课上的难点，并尝试利用课余时间，通过
-               AI 辅助编程和一些动手实践，把课本上的理论变成可以运行的小程序。
-            </p>
-            <p>
-              我深知自己目前的底子还很薄，面对复杂的开发工作也经常觉得像在面对&ldquo;黑箱&rdquo;。但我愿意保持朴实的态度，通过多动手、多踩坑，一步步积累写代码和做产品的真本事。
-            </p>
+        </div>
+
+        <figure className="system-map" aria-label="问题经过 LLM 和 Agent 转化为可运行系统的流程图">
+          <figcaption>一次任务如何开始运行</figcaption>
+          <svg viewBox="0 0 520 300" role="img" aria-hidden="true">
+            <path className="map-grid" d="M48 64H472M48 150H472M48 236H472M96 35V265M260 35V265M424 35V265" />
+            <path className="map-line map-line-main" d="M64 150H168C205 150 205 95 242 95H310C347 95 347 150 384 150H458" />
+            <path className="map-line map-line-branch" d="M277 95V214H402" />
+            <circle className="map-node node-input" cx="64" cy="150" r="7" />
+            <circle className="map-node node-llm" cx="242" cy="95" r="9" />
+            <circle className="map-node node-agent" cx="310" cy="95" r="11" />
+            <circle className="map-node node-business" cx="277" cy="214" r="7" />
+            <circle className="map-node node-output" cx="458" cy="150" r="9" />
+            <circle className="map-pulse" cx="310" cy="95" r="18" />
+            <circle className="map-signal" cx="64" cy="150" r="5" />
+            <text x="49" y="179">问题</text><text x="224" y="72">LLM</text>
+            <text x="289" y="72">Agent</text><text x="242" y="244">场景约束</text>
+            <text x="416" y="179">系统</text>
+          </svg>
+          <p><span>signal</span> 理解、计划、执行，再回到真实结果。</p>
+        </figure>
+      </header>
+
+      <aside className="coordinate-strip" aria-label="个人状态">
+        <p><span>当前坐标</span> 南京大学 · 准大二</p>
+        <p><span>最近在学</span> LLM / Agent / RAG</p>
+        <p><span>工作方式</span> 先拆问题，再写代码</p>
+      </aside>
+
+      <main>
+        <section className="work-section" id="work" aria-labelledby="work-title">
+          <div className="section-heading">
+            <div><p className="section-kicker">Selected work</p><h2 id="work-title">正在把什么做出来</h2></div>
+            <p>项目不是技术名词的陈列，而是我理解问题、试错和积累工程能力的现场。</p>
+          </div>
+          <div className="project-grid">
+            {projects.map((project) => {
+              const className = `project-item${project.featured ? " project-featured" : ""}`;
+              const content = <>
+                <div className="project-topline"><span>{project.kind}</span><span className="project-open" aria-hidden="true">↗</span></div>
+                <h3>{project.name}</h3><p>{project.description}</p><div className="project-detail">{project.detail}</div>
+              </>;
+              return project.external
+                ? <a key={project.name} className={className} href={project.href} target="_blank" rel="noreferrer">{content}</a>
+                : <Link key={project.name} className={className} href={project.href}>{content}</Link>;
+            })}
           </div>
         </section>
-      </Reveal>
 
-      <Reveal stagger={0.1}>
-        <section className="mb-28">
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
-            <span className="text-indigo-400/40">02</span>
-            <span className="h-px flex-1 bg-white/5" />
-            技能
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              {
-                title: "编程与开发基础",
-                icon: "💻",
-                chipColor: "bg-indigo-500/20 text-indigo-300",
-                items: [
-                  "C / Java / Python",
-                  "面向对象编程 (OOP)",
-                  "Next.js + Tailwind CSS",
-                  "AI 辅助编程 (Cursor, Claude Code)",
-                ],
-              },
-              {
-                title: "软件工程与业务分析",
-                icon: "📋",
-                chipColor: "bg-violet-500/20 text-violet-300",
-                items: [
-                  "需求工程 & 商业模式画布",
-                  "PRD / 业务流程图",
-                  "LLM 接入 & Prompt 调试",
-                  "RAG 检索增强生成",
-                ],
-              },
-              {
-                title: "商科与数据处理",
-                icon: "📊",
-                chipColor: "bg-purple-500/20 text-purple-300",
-                items: [
-                  "微观/宏观经济学",
-                  "Python 数据清洗",
-                  "K-means 聚类分析",
-                  "Matplotlib / Plotly 可视化",
-                ],
-              },
-            ].map((group) => (
-              <div
-                key={group.title}
-                className="rounded-2xl bg-white/5 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-white/8"
-              >
-                <div
-                  className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl text-lg ${group.chipColor}`}
-                >
-                  {group.icon}
-                </div>
-                <h3 className="mb-3 font-mono text-base font-semibold text-white/50">
-                  {group.title}
-                </h3>
-                <ul className="space-y-2 text-sm text-white/60">
-                  {group.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <span className="h-1 w-1 rounded-full bg-indigo-400/40" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        <section className="practice-section" aria-labelledby="practice-title">
+          <div className="section-heading compact-heading"><div><p className="section-kicker">Practice map</p><h2 id="practice-title">两条主线，一种辅助视角</h2></div></div>
+          <div className="practice-layout">
+            <div className="practice-main">
+              {trails.map((trail) => <article className="practice-track" key={trail.title}>
+                <div className="track-mark" aria-hidden="true" />
+                <div><h3>{trail.title}</h3><p>{trail.description}</p><ul>{trail.items.map((item) => <li key={item}>{item}</li>)}</ul></div>
+              </article>)}
+            </div>
+            <aside className="business-lens"><span>辅助视角</span><h3>商业思维</h3><p>不只关心模型能做什么，也追问它解决谁的问题、如何进入流程、能否创造真实价值。</p></aside>
           </div>
         </section>
-      </Reveal>
 
-      <Reveal stagger={0.15}>
-        <section className="mb-28">
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
-            <span className="text-indigo-400/40">03</span>
-            <span className="h-px flex-1 bg-white/5" />
-            项目
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                name: "Cartify 智能销售副驾",
-                subtitle: "德勤数字化精英挑战赛 · 全国半决赛",
-                work: "负责 AI 销售话术推荐与外呼逻辑设计，撰写 PRD 文档。用 Next.js + Tailwind CSS 搭建前端，通过 Serverless API 接入 DeepSeek 大模型，将销冠经验做成 JSON 知识引导，用状态机控制对话阶段跳转。",
-                insight:
-                  "第一次面对高压交付，学会了团队配合、清晰表达，以及如何把商业点子拆解成技术逻辑。",
-                link: "https://cartifyv3.vercel.app/",
-                tags: ["Next.js", "DeepSeek", "Serverless", "PRD"],
-              },
-              {
-                name: "金融纠纷调解机器人",
-                subtitle: "大模型法律调解研究 · 核心成员",
-                work: "梳理花呗/借呗金融纠纷的线下调解 SOP，将复杂法律规则转化为多轮对话核心逻辑。调研 RAG 技术在法律场景的可行性，学习收集清洗法律条款并导入向量数据库，以减少大模型法律回答偏差。",
-                insight:
-                  "逻辑严密，向量数据库和 Embedding 是全新领域，正在努力攻克消化中。",
-                tags: ["RAG", "向量数据库", "LLM", "多轮对话"],
-              },
-              {
-                name: "RFM 客户精准营销系统",
-                subtitle: "Python 数据练习项目",
-                work: "基于 RFM（近度、频度、额度）模型，用 Python 调用 K-means 算法对模拟客户数据进行聚类，分为高价值、活跃、潜在、流失四个圈层。用 Plotly / Matplotlib 制作可交互 3D 图表。",
-                insight:
-                  "把课本上抽象的营销圈层理论变成看得见的代码和图表，锻炼了数据预处理和可视化动手能力。",
-                tags: ["Python", "K-means", "Plotly", "RFM"],
-              },
-            ].map((project) => (
-              <div
-                key={project.name}
-                className="rounded-2xl bg-white/5 p-8 transition-all duration-300 hover:scale-[1.02] hover:bg-white/8"
-              >
-                <div className="mb-1 flex flex-wrap items-center gap-2">
-                  <h3 className="font-semibold text-white/85">
-                    {project.name}
-                  </h3>
-                  <span className="font-mono text-xs text-white/30">
-                    {project.subtitle}
-                  </span>
-                </div>
-                <p className="mb-2 text-sm leading-relaxed text-white/60">
-                  {project.work}
-                </p>
-                <p className="mb-3 text-xs italic leading-relaxed text-white/35">
-                  {project.insight}
-                </p>
-                <div className="flex flex-wrap items-center gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-indigo-400/20 bg-indigo-500/10 px-2.5 py-0.5 font-mono text-[10px] text-indigo-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-auto font-mono text-xs text-indigo-300 underline underline-offset-2 transition-colors hover:text-indigo-200"
-                    >
-                      体验 →
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+        <section className="notes-section" aria-labelledby="notes-title">
+          <div className="notes-copy"><p className="section-kicker">Learning in public</p><h2 id="notes-title">把学习过程留下来</h2><p>代码之外，我也记录论文、工程实验、知识笔记和每周观察。</p></div>
+          <nav className="notes-links" aria-label="学习记录">
+            <Link href="/blog"><span>博客</span><small>工程实践与复盘</small></Link>
+            <Link href="/wiki"><span>Wiki</span><small>正在生长的知识库</small></Link>
+            <Link href="/papers"><span>Papers</span><small>AI 论文阅读</small></Link>
+            <Link href="/digest"><span>周报</span><small>近期输入与进展</small></Link>
+          </nav>
         </section>
-      </Reveal>
+      </main>
 
-      <Reveal>
-        <footer>
-          <h2 className="mb-6 flex items-center gap-2 font-mono text-sm tracking-wider text-white/40">
-            <span className="text-indigo-400/40">04</span>
-            <span className="h-px flex-1 bg-white/5" />
-            联系方式
-          </h2>
-          <div className="flex flex-col gap-2 font-mono text-sm text-white/50">
-            <p>
-              <span className="text-white/30">tel</span>{" "}
-              <a
-                href="tel:+8617512666050"
-                className="transition-colors hover:text-indigo-300"
-              >
-                +86 175 1266 6050
-              </a>
-            </p>
-            <p>
-              <span className="text-white/30">mail</span>{" "}
-              <a
-                href="mailto:1061124482@qq.com"
-                className="transition-colors hover:text-indigo-300"
-              >
-                1061124482@qq.com
-              </a>
-            </p>
-            <p>
-              <span className="text-white/30">github</span>{" "}
-              <a
-                href="https://github.com/ZhansLeo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-indigo-300"
-              >
-                ZhansLeo
-              </a>
-            </p>
-          </div>
-        </footer>
-      </Reveal>
+      <footer className="home-footer">
+        <div><p>如果你也在研究 LLM、Agent 或有趣的真实问题，欢迎交流。</p><a href="mailto:1061124482@qq.com">1061124482@qq.com</a></div>
+        <a href="https://github.com/ZhansLeo" target="_blank" rel="noreferrer">GitHub / ZhansLeo</a>
+      </footer>
     </div>
   );
 }
