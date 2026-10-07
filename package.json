@@ -2,19 +2,30 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
-"scripts": {
+  "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/generate-blog.js && node scripts/generate-wiki.js && node scripts/parse-rss.js && python scripts/build_status.py && python scripts/build_digest.py && python scripts/build_agent.py && python scripts/build_architecture.py",
     "build": "next build",
     "check": "node scripts/check.js",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run prebuild && npm run build && npm run check && tcb hosting deploy out -e my-portfolio-d3g4m2j50a17c3d18"
+    "deploy": "node -e \"console.log('发布方式：推送 master 后由 GitHub Actions 自动部署。文章可用 npm run content:publish。')\"",
+    "content:new": "node scripts/writing.js new",
+    "content:preview": "node scripts/writing.js preview",
+    "content:stage": "node scripts/writing.js stage",
+    "content:publish": "node scripts/writing.js publish",
+    "test:content": "node --test scripts/content.test.js",
+    "papers:collect": "python scripts/collect_papers.py"
   },
   "dependencies": {
-    "next": "16.2.10",
+    "@fontsource/noto-sans-sc": "^5.3.0",
+    "@fontsource/noto-serif-sc": "^5.3.0",
+    "katex": "^0.18.7",
+    "markdown-it": "^15.0.2",
+    "next": "^16.3.5",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -22,7 +33,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.10",
+    "eslint-config-next": "^16.3.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

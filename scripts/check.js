@@ -5,6 +5,8 @@ const OUT_DIR = path.join(__dirname, "..", "out");
 const REQUIRED_PAGES = [
   "index.html",
   "about/index.html",
+  "research/planning-execution-failures/index.html",
+  "research/small-llm-math-reasoning-lab/index.html",
   "blog/index.html",
   "blog/posts/hello-agent/index.html",
   "rss-reader/index.html",
@@ -32,6 +34,13 @@ function readHtml(filePath) {
   return fs.readFileSync(path.join(OUT_DIR, filePath), "utf-8");
 }
 
+function walk(dir, prefix = "") {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+    const relative = path.posix.join(prefix, entry.name);
+    return entry.isDirectory() ? walk(path.join(dir, entry.name), relative) : [relative];
+  });
+}
+
 function extractLinks(html) {
   const links = [];
   const re = /<a\s[^>]*href="([^"]*)"[^>]*>/gi;
@@ -43,6 +52,8 @@ function extractLinks(html) {
 }
 
 function resolveLink(href, baseFile) {
+  href = href.split(/[?#]/)[0];
+  if (!href) return null;
   if (href.startsWith("http://") || href.startsWith("https://")) return null;
   if (href.startsWith("mailto:") || href.startsWith("tel:")) return null;
   if (href.startsWith("#")) return null;
@@ -103,10 +114,18 @@ function main() {
 
   console.log("\n=== Check 2: Internal Links ===\n");
 
-  const htmlFiles = REQUIRED_PAGES.filter((f) => f.endsWith(".html"));
+  const allFiles = walk(OUT_DIR);
+  for (const file of allFiles) {
+    if (/(^|\/)(drafts|\.preview|\.env)(\/|\.|$)/i.test(file)) fail(`Private path in output: ${file}`);
+  }
+  const htmlFiles = allFiles.filter((f) => f.endsWith(".html"));
   for (const htmlFile of htmlFiles) {
     const html = readHtml(htmlFile);
     const links = extractLinks(html);
+    for (const match of html.matchAll(/<img\s[^>]*src="([^"]+)"/gi)) {
+      const target = resolveLink(match[1], htmlFile);
+      if (target && !exists(target)) fail(`${htmlFile} -> missing image ${match[1]}`);
+    }
     for (const link of links) {
       const target = resolveLink(link.href, htmlFile);
       if (target === null) continue;

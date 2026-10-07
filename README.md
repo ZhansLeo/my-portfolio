@@ -1,6 +1,6 @@
 # 赵寒石 | 个人主页
 
-南京大学 软件工程与工商管理双学位 · 准大二 的个人网站。记录软件工程实践、AI 研究与思考，包含博客、Wiki 知识库、学习周报、RSS 阅读等技术模块。
+南京大学 软件工程与工商管理双学位 · 大二 的个人网站。记录软件工程实践、AI 研究与思考，包含博客、Wiki 知识库、学习周报、RSS 阅读等技术模块。
 
 **线上地址**：https://zhansleo.github.io/my-portfolio/
 
@@ -11,7 +11,7 @@
 | 首页 / 关于我 | 个人介绍、技能与项目 |
 | 博客 | `content/posts/*.md` 渲染的文章，附 RSS `feed.xml` |
 | Wiki | 个人知识库，`content/wiki/*.md`，支持内部互链 |
-| Papers | 论文收藏 |
+| Papers | 每三天自动精选至多四篇 arXiv 论文，优先覆盖两个方向 |
 | RSS | 订阅外部技术源，自动汇总 `data/rss-items/items.json` |
 | 周报 | 每周论文 + Wiki 精选，数据在 `content/digest/` |
 | 技术架构 | 24 小时个人 Agent 的设计文档（`docs/architecture.md`） |
@@ -21,7 +21,7 @@
 
 - Next.js 16（App Router，`output: "export"` 全静态导出）+ React 19 + TypeScript（strict）
 - Tailwind CSS v4：无 `tailwind.config.ts`，主题在 `app/globals.css` 通过 `@theme inline` 配置
-- 字体：`next/font` 加载 Geist；路径别名 `@/*` → 项目根
+- 字体：自托管 Noto Serif SC 标题、Noto Sans SC 正文；路径别名 `@/*` → 项目根
 - 构建期数据生成：Node.js 脚本 + Python 脚本
 - 部署：GitHub Pages（`basePath: /my-portfolio` + `trailingSlash: true` + `.nojekyll`）
 
@@ -29,7 +29,7 @@
 
 ```bash
 npm install
-npm run dev   # 开发服务器，http://localhost:3000
+npm run dev   # 开发服务器，http://localhost:3000/my-portfolio/
 ```
 
 ## 常用命令
@@ -42,7 +42,7 @@ npm run dev   # 开发服务器，http://localhost:3000
 | `npm run check` | 校验 `out/` 产物：必需页面、内部链接、RSS XML |
 | `npm run lint` | ESLint |
 
-> `npm run deploy` 已废弃：原脚本指向腾讯云 CloudBase，现已由 GitHub Actions 部署 GitHub Pages 取代，仅保留作本地参考。
+> 网站由 GitHub Actions 部署至 GitHub Pages。CloudBase 发布脚本已移除。
 
 ## 内容与数据
 
@@ -58,7 +58,7 @@ npm run dev   # 开发服务器，http://localhost:3000
 | `local-data/agent.db`（SQLite） | `scripts/build_agent.py` | `public/data/agent-rules.json` |
 | `docs/architecture.md` | `scripts/build_architecture.py` | `public/data/architecture.json` |
 
-博客/Wiki 的 Markdown 使用 `---` 包裹的 frontmatter（`title`、`date`/`updated`、`description`、`tags`），正文由脚本内置的简化解析器转换（支持 `#`/`##`/`###`、列表、段落、加粗、行内代码、链接）。
+博客/Wiki 的 Markdown 使用 `---` 包裹的 frontmatter（`title`、`date`/`updated`、`description`、`tags`），正文由 markdown-it 转换，支持表格、图片、代码块与 KaTeX 公式；禁用原始 HTML 和危险链接。
 
 ## 部署
 
@@ -84,3 +84,17 @@ docs/       技术架构等文档
 local-data/ 本地运行数据（agent.db、审批队列，已 gitignore）
 public/     静态资源与生成的公开数据（`public/data/`）
 ```
+
+## 本地写作与论文自动更新
+
+完整操作见 [写作与发布指南](docs/writing.md)。
+
+- 新建私有草稿：`npm run content:new -- blog my-note`（知识库使用 wiki）。
+- 本机预览：`npm run content:preview -- blog my-note`。
+- 准备公开内容：`npm run content:stage -- blog my-note`。
+- 检查后主动发布：`npm run content:publish -- blog my-note`。
+- 草稿及未发布图片位于被忽略的 drafts，公开站点没有编辑入口。
+- Papers 定时任务每六小时检查，到达 72 小时后自动采集、筛选与部署；支持手动触发。
+- 首选 AI Agent、World Models、VLM，合计至多四篇、优先两个方向，不足时扩展相关主题；不使用收费摘要服务。
+- 仅数据准备任务有仓库写权限，构建任务只读，Pages 部署权限单独授予部署任务。
+- 安全及筛选测试：`npm run test:content` 与 `python -m unittest discover -s scripts -p "test_*.py"`。

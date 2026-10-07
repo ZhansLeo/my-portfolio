@@ -3,49 +3,109 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: '23 */6 * * *'
   workflow_dispatch:
+    inputs:
+      force_papers:
+        description: '立即采集论文（忽略 72 小时门槛）'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      publish: ${{ steps.changes.outputs.publish }}
+      revision: ${{ steps.changes.outputs.revision }}
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
         with:
-          node-version: 20
-
-      # prebuild runs python scripts (build_status.py etc.)
+          ref: master
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: '3.12'
+      - name: Collect papers
+        id: collect
+        if: github.event_name != 'push'
+        continue-on-error: true
+        env:
+          FORCE_PAPERS: ${{ inputs.force_papers }}
+        run: |
+          if [ "$FORCE_PAPERS" = "true" ]; then
+            python scripts/collect_papers.py --force
+          else
+            python scripts/collect_papers.py
+          fi
+      - name: Persist paper data and select deployment revision
+        id: changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if ! git diff --quiet -- public/data/paper-feed.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -- public/data/paper-feed.json
+            git commit -m "docs: 更新论文精选与采集状态" -m "保存本次筛选结果、论文版本及最近采集状态，保留历史批次。"
+            git push origin HEAD:master
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          elif [ "$EVENT_NAME" != "schedule" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Report collection failure
+        if: steps.collect.outcome == 'failure'
+        run: echo "::warning::论文采集失败。保留历史论文，部署最新状态，下一次定时运行将重试。"
 
-      - name: Install dependencies
-        run: npm ci
-
+  build:
+    needs: prepare
+    if: needs.prepare.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.revision }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - name: Test
+        run: |
+          npm run test:content
+          python -m unittest discover -s scripts -p "test_*.py"
       - name: Build
-        run: npm run prebuild && npm run build
-
+        run: npm run build
       - name: Check
-        run: npm run check
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        run: npm run lint && npm run check
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

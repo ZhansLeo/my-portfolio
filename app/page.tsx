@@ -1,146 +1,47 @@
 import Link from "next/link";
+import { researchProjects } from "./research/projects";
+import { posts } from "./blog/posts-data";
+import { wikiPages } from "./wiki/pages-data";
+import Ambient from "./components/ambient";
+import paperFeed from "../public/data/paper-feed.json";
 
-const projects = [
-  {
-    name: "个人 Agent 系统",
-    kind: "当前学习重点",
-    description: "围绕记忆、审批、事件通道与任务执行搭建个人 Agent，尝试把大模型从一次问答推进到可控、可追踪的持续工作流。",
-    detail: "Python · Agent 架构 · Memory · Human-in-the-loop",
-    href: "/architecture",
-    action: "查看技术架构",
-    featured: true,
-  },
-  {
-    name: "金融纠纷调解机器人",
-    kind: "AI 科研实践",
-    description: "将线下调解 SOP 转化为多轮对话逻辑，研究 RAG 在法律场景中的可靠性，以及如何减少模型回答偏差。",
-    detail: "RAG · Embedding · 多轮对话 · 法律场景",
-  },
-  {
-    name: "Cartify 智能销售副驾",
-    kind: "工程落地",
-    description: "把销售经验整理为知识引导，以状态机控制对话阶段，并完成从 PRD、前端到大模型接口的产品闭环。",
-    detail: "Next.js · LLM · 状态机 · Serverless",
-    href: "https://cartifyv3.vercel.app/",
-    action: "体验项目",
-    external: true,
-  },
-  {
-    name: "RFM 客户营销分析",
-    kind: "商业与数据",
-    description: "用聚类算法把抽象的客户分层理论转化为可观察的数据结果，练习数据清洗、分析和可视化。",
-    detail: "Python · K-means · Plotly · RFM",
-  },
-];
-
-const trails = [
-  {
-    title: "软件工程实践",
-    description: "把复杂问题拆成边界清楚、能够验证和持续迭代的系统。",
-    items: ["系统拆解", "Next.js / Python", "状态与数据流"],
-  },
-  {
-    title: "AI 与 LLM",
-    description: "关注 Agent、RAG 与多轮对话，理解模型如何进入真实工作流。",
-    items: ["Agent 架构", "RAG / Embedding", "Prompt 与评估"],
-  },
-];
+const paperBatches = paperFeed.batches as { papers: { id: string; title: string; url: string; published: string }[] }[];
 
 export default function Home() {
-  return (
-    <div className="home-shell">
-      <header className="hero" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <p className="hero-status"><span aria-hidden="true" /> 南京大学 · 软件工程 / 工商管理</p>
-          <h1 id="hero-title">让 AI 从回答问题，<br />走向执行任务。</h1>
-          <p className="hero-intro">
-            我是赵寒石。我正在学习如何用软件工程的方法，把 LLM、Agent
-            与真实问题连接起来；也用商业思维判断，什么值得被做出来。
-          </p>
-          <div className="hero-actions">
-            <a className="primary-action" href="#work">查看实践</a>
-            <Link className="text-action" href="/architecture">阅读 Agent 架构</Link>
-          </div>
-        </div>
-
-        <figure className="system-map" aria-label="问题经过 LLM 和 Agent 转化为可运行系统的流程图">
-          <figcaption>一次任务如何开始运行</figcaption>
-          <svg viewBox="0 0 520 300" role="img" aria-hidden="true">
-            <path className="map-grid" d="M48 64H472M48 150H472M48 236H472M96 35V265M260 35V265M424 35V265" />
-            <path className="map-line map-line-main" d="M64 150H168C205 150 205 95 242 95H310C347 95 347 150 384 150H458" />
-            <path className="map-line map-line-branch" d="M277 95V214H402" />
-            <circle className="map-node node-input" cx="64" cy="150" r="7" />
-            <circle className="map-node node-llm" cx="242" cy="95" r="9" />
-            <circle className="map-node node-agent" cx="310" cy="95" r="11" />
-            <circle className="map-node node-business" cx="277" cy="214" r="7" />
-            <circle className="map-node node-output" cx="458" cy="150" r="9" />
-            <circle className="map-pulse" cx="310" cy="95" r="18" />
-            <circle className="map-signal" cx="64" cy="150" r="5" />
-            <text x="49" y="179">问题</text><text x="224" y="72">LLM</text>
-            <text x="289" y="72">Agent</text><text x="242" y="244">场景约束</text>
-            <text x="416" y="179">系统</text>
-          </svg>
-          <p><span>signal</span> 理解、计划、执行，再回到真实结果。</p>
-        </figure>
-      </header>
-
-      <aside className="coordinate-strip" aria-label="个人状态">
-        <p><span>当前坐标</span> 南京大学 · 准大二</p>
-        <p><span>最近在学</span> LLM / Agent / RAG</p>
-        <p><span>工作方式</span> 先拆问题，再写代码</p>
-      </aside>
-
-      <main>
-        <section className="work-section" id="work" aria-labelledby="work-title">
-          <div className="section-heading">
-            <div><p className="section-kicker">Selected work</p><h2 id="work-title">正在把什么做出来</h2></div>
-            <p>项目不是技术名词的陈列，而是我理解问题、试错和积累工程能力的现场。</p>
-          </div>
-          <div className="project-grid">
-            {projects.map((project) => {
-              const className = `project-item${project.featured ? " project-featured" : ""}`;
-              const content = <>
-                <div className="project-topline"><span>{project.kind}</span></div>
-                <h3>{project.name}</h3><p>{project.description}</p><div className="project-detail">{project.detail}</div>
-              </>;
-              return <article key={project.name} className={className}>
-                {content}
-                {project.href && (project.external
-                  ? <a className="project-action" href={project.href} target="_blank" rel="noreferrer">{project.action}</a>
-                  : <Link className="project-action" href={project.href}>{project.action}</Link>)}
-              </article>;
-            })}
-          </div>
-        </section>
-
-        <section className="practice-section" aria-labelledby="practice-title">
-          <div className="section-heading compact-heading"><div><p className="section-kicker">Practice map</p><h2 id="practice-title">两条主线，一种辅助视角</h2></div></div>
-          <div className="practice-layout">
-            <div className="practice-main">
-              {trails.map((trail) => <article className="practice-track" key={trail.title}>
-                <div className="track-mark" aria-hidden="true" />
-                <div><h3>{trail.title}</h3><p>{trail.description}</p><ul>{trail.items.map((item) => <li key={item}>{item}</li>)}</ul></div>
-              </article>)}
-            </div>
-            <aside className="business-lens"><span>辅助视角</span><h3>商业思维</h3><p>不只关心模型能做什么，也追问它解决谁的问题、如何进入流程、能否创造真实价值。</p></aside>
-          </div>
-        </section>
-
-        <section className="notes-section" aria-labelledby="notes-title">
-          <div className="notes-copy"><p className="section-kicker">Learning in public</p><h2 id="notes-title">把学习过程留下来</h2><p>代码之外，我也记录论文、工程实验、知识笔记和每周观察。</p></div>
-          <nav className="notes-links" aria-label="学习记录">
-            <Link href="/blog"><span>博客</span><small>工程实践与复盘</small></Link>
-            <Link href="/wiki"><span>Wiki</span><small>正在生长的知识库</small></Link>
-            <Link href="/papers"><span>Papers</span><small>AI 论文阅读</small></Link>
-            <Link href="/digest"><span>周报</span><small>近期输入与进展</small></Link>
-          </nav>
-        </section>
-      </main>
-
-      <footer className="home-footer">
-        <div><p>如果你也在研究 LLM、Agent 或有趣的真实问题，欢迎交流。</p><a href="mailto:1061124482@qq.com">1061124482@qq.com</a></div>
-        <a href="https://github.com/ZhansLeo" target="_blank" rel="noreferrer">GitHub / ZhansLeo</a>
-      </footer>
-    </div>
-  );
+  return <div className="portfolio">
+    <Ambient />
+    <header className="identity">
+      <p className="identity-school">南京大学</p>
+      <h1>赵寒石</h1>
+      <p className="identity-degree">软件工程与工商管理双学位 <span>大二</span></p>
+      <p className="identity-intro">关注智能体的执行可靠性与语言模型的推理。<br />在实验、代码与真实问题之间，逐步建立自己的理解。</p>
+      <div className="identity-links"><a href="#research">科研实践</a><Link href="/about">关于我</Link><a href="https://github.com/ZhansLeo" target="_blank" rel="noreferrer">GitHub</a></div>
+      <a className="scroll-note" href="#research">向下阅读 <span aria-hidden="true">↓</span></a>
+    </header>
+    <section className="chapter research-chapter" id="research" aria-labelledby="research-title">
+      <div className="chapter-intro"><h2 id="research-title">从问题出发，<br />让实验给出回答。</h2><p>两项独立完成的科研学习实践。记录方法、失败与证据，也保留结论的边界。</p></div>
+      <div className="research-list">{researchProjects.map(project => <article className="research-entry" key={project.slug}>
+        <div className="entry-meta"><span>个人研究实践</span><span>{project.period}</span></div>
+        <h3><Link href={`/research/${project.slug}`}>{project.title}</Link></h3>
+        <p className="research-question">{project.question}</p>
+        <p className="research-finding">{project.finding}</p>
+        <div className="entry-bottom"><span>{project.methods}</span><Link href={`/research/${project.slug}`}>阅读实验记录 ↗</Link></div>
+      </article>)}</div>
+    </section>
+    <section className="chapter" id="practice" aria-labelledby="practice-title">
+      <div className="chapter-intro"><h2 id="practice-title">把理解带进实践。</h2><p>从业务流程到数据实验，关心系统如何运行，也关心判断如何被验证。</p></div>
+      <div className="practice-pair">
+        <article><p className="entry-meta">工程实践 · 核心开发</p><h3>Cartify<br />智能销售副驾</h3><p>将销售流程与知识组织为业务本体，以状态控制和人在环中干预连接对话辅助与客户记录，完成端到端部署。</p><p className="practice-note">德勤数字化精英挑战赛 · 全国半决赛</p><a href="https://cartifyv3.vercel.app/" target="_blank" rel="noreferrer">访问在线演示 ↗</a></article>
+        <article><p className="entry-meta">数据研究 · 核心成员</p><h3>市场微观结构<br />与分钟级收益预测</h3><p>处理逐笔成交数据，构建微观结构因子，结合时间序列切分、特征消融与交易成本回测，分析预测信号的有效边界。</p><p className="practice-note">Python / Polars / LSTM / 因子分析</p><Link href="/about#experience">了解项目经历 ↗</Link></article>
+      </div>
+      <p className="quiet-link">也在持续搭建个人 Agent 系统。<Link href="/architecture">查看架构记录</Link></p>
+    </section>
+    <section className="chapter writing-chapter" aria-labelledby="writing-title">
+      <div className="chapter-intro"><h2 id="writing-title">留下思考的过程。</h2><p>博客记录一次探索，知识库沉淀一种理解，论文追踪打开新的问题。</p></div>
+      <nav className="writing-doors" aria-label="学习记录"><Link href="/blog"><h3>博客</h3><p>实验、复盘与日常思考</p></Link><Link href="/wiki"><h3>知识库</h3><p>概念、方法与持续修订的笔记</p></Link><Link href="/papers"><h3>论文追踪</h3><p>每三天，至多四篇自动精选</p></Link></nav>
+      <div className="recent-notes">{posts.slice(0, 2).map(post => <Link key={post.slug} href={`/blog/posts/${post.slug}`}><span>博客</span><strong>{post.title}</strong><time>{post.date}</time></Link>)}{wikiPages.filter(p => p.slug !== "home").slice(0, 1).map(p => <Link key={p.slug} href={`/wiki/pages/${p.slug}`}><span>知识库</span><strong>{p.title}</strong><time>{p.updated}</time></Link>)}</div>
+      {paperBatches[0] && <div className="recent-notes" aria-label="最近自动精选论文">{paperBatches[0].papers.slice(0, 2).map(p => <a key={p.id} href={p.url} target="_blank" rel="noreferrer"><span>论文</span><strong>{p.title}</strong><time>{p.published.slice(0, 10)}</time></a>)}</div>}
+    </section>
+    <footer className="portfolio-footer"><h2>欢迎交流。</h2><p>关于智能体、模型推理，或你正在探索的问题。</p><a href="mailto:1061124482@qq.com">1061124482@qq.com</a><div><span>南京大学 · 赵寒石</span><Link href="/about">更多关于我</Link></div></footer>
+  </div>;
 }

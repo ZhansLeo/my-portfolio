@@ -10,7 +10,7 @@ export default function BlogPage() {
           <span className="text-gradient">博客</span>
         </h1>
         <p className="mb-10 text-white/40">
-          记录我的学习、实验和思考。
+          按时间记录实验、复盘与日常思考。可反复查阅的概念与方法整理在知识库。
         </p>
       </Reveal>
 

@@ -51,3 +51,8 @@ app/blog/posts-data.ts
 app/wiki/pages-data.ts
 public/feed.xml
 data/rss-items/
+
+# Private writing and local previews
+/drafts/
+/.preview/
+/.playwright-mcp/

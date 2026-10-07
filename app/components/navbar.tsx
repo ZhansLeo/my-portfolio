@@ -8,8 +8,8 @@ const coreLinks = [
   { href: "/", label: "首页" },
   { href: "/about", label: "关于我" },
   { href: "/blog", label: "博客" },
-  { href: "/wiki", label: "Wiki" },
-  { href: "/papers", label: "Papers" },
+  { href: "/wiki", label: "知识库" },
+  { href: "/papers", label: "论文追踪" },
 ];
 
 const moreLinks = [
@@ -36,7 +36,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
       className={`rounded-full px-3 py-1.5 font-mono text-xs transition-colors ${
         active
           ? "font-medium text-[#a9cbff]"
-          : "text-white/40 hover:text-white/70"
+          : "text-white/65 hover:text-white/70"
       }`}
     >
       {label}
@@ -91,7 +91,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07] bg-[#080c18]/82 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[50rem] items-center justify-between px-4 py-3 md:px-0">
+      <div className="mx-auto flex max-w-[62rem] items-center justify-between px-4 py-3 md:px-0">
         <Link
           href="/"
           className="font-mono text-sm font-semibold tracking-wide text-[#eef2ff]"
@@ -112,7 +112,7 @@ export default function Navbar() {
               className={`rounded-full px-3 py-1.5 font-mono text-xs transition-colors ${
                 moreLinks.some((l) => isActive(pathname, l.href))
                   ? "font-medium text-[#a9cbff]"
-                  : "text-white/40 hover:text-white/70"
+                  : "text-white/65 hover:text-white/70"
               }`}
             >
               <span className="inline-flex items-center gap-1">
@@ -147,7 +147,7 @@ export default function Navbar() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex flex-col gap-1 p-2 md:hidden"
-          aria-label="菜单"
+          aria-label="菜单" aria-expanded={mobileOpen}
         >
           <span
             className={`block h-0.5 w-4 rounded bg-white/60 transition-transform ${
@@ -181,7 +181,7 @@ export default function Navbar() {
                   className={`rounded-lg px-3 py-2.5 font-mono text-sm transition-colors ${
                     active
                       ? "bg-white/10 text-white"
-                      : "text-white/40 hover:bg-white/[0.05] hover:text-white/70"
+                      : "text-white/65 hover:bg-white/[0.05] hover:text-white/70"
                   }`}
                 >
                   {link.label}

@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "lastAttempt": "2026-09-17T13:46:09.015094+00:00",
+  "lastSuccess": "2026-09-17T13:46:09.015094+00:00",
+  "status": "ok",
+  "message": "本次新增 4 篇。",
+  "batches": [
+    {
+      "id": "20260917T134609Z",
+      "createdAt": "2026-09-17T13:46:09.015094+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2609.16724",
+          "version": 2,
+          "title": "CorrRisk-WM: Corridor-Conditioned Risk World Modeling for Safety-Critical Trajectory Planning",
+          "summary": "Safe local planning requires forecasting surrounding-agent motion and evaluating candidate-specific risks, since identical agent motion can pose different risks to different ego trajectories. We present CorrRisk-WM, a planning-oriented partial world model coupling environment evolution with supervised intrusion and near-miss prediction over bounded candidate-trajectory corridors. A latent environment model recursively predicts agent states and updates agent-agent and agent-map interactions. Each candidate queries the evolving environment through footprint- aware geometry and learned agent-corridor representations. A lightweight recurrent risk module uses temporal context to estimate per-slice hazards; survival aggregation yields first-entry and horizon-level event probabilities. On 29,176 scenarios from 100 Waymo validation shards, CorrRisk-WM achieves intrusion average precision (AP) of 0.8567 and 1-m near-miss first-entry AP of 0.8671. In baseline comparisons, it attains the highest near-miss AP at all three distance thresholds and the lowest observed open-loop collision rate (4.88%), with route progress of 15.35 m. Across three seeds, removing dynamic environment modeling or candidate-conditioned geometric interaction reduces mean intrusion AP from 0.8590 to 0.7624 and 0.7252, respectively. These results support coupling environment evolution with candidate-conditioned geometric reasoning for risk prediction and safety-oriented candidate selection.",
+          "authors": [
+            "Tingyu Guo",
+            "Reza Langari"
+          ],
+          "published": "2026-09-15T06:56:08Z",
+          "updated": "2026-09-16T01:32:38Z",
+          "url": "https://arxiv.org/abs/2609.16724",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2609.18736",
+          "version": 1,
+          "title": "Clueing up LLMs with Tool-Augmented Deductive Reasoning",
+          "summary": "Despite recent advances in large language models (LLMs), performing logically consistent deductive reasoning over extended interactions remains challenging. Tasks that require integrating evidence across multiple reasoning steps, maintaining consistency with prior inferences, and updating beliefs under new constraints can surface limitations in current models while providing a useful testbed for evaluating reasoning enhancements. In this paper, we implement a text-based, multi-agent version of the classic board game Clue as an environment to evaluate multi-step, agentic deductive reasoning. In this setting, agents must infer hidden information from a sequence of observations, maintain consistency across turns, and reason over an evolving set of logical constraints. We instantiate six LLM-based agents (GPT-4o-mini and Gemini-2.5-Flash) as players that engage in turn-based gameplay; using three agents per model family, we establish baseline performance across repeated games. We then introduce a tool-augmented approach in which a structured possibility matrix converts implicit game state from generated reasoning logs into an explicit representation of remaining possibilities. The possibility matrix encodes extended-turn memory and deductive constraints, offloading these tasks from the agent. We compare this approach against the baseline to evaluate how tool augmentation supports reasoning quality and task success for autonomous agents in a strategic reasoning environment.",
+          "authors": [
+            "Rebecca Ansell",
+            "Autumn Toney-Wails"
+          ],
+          "published": "2026-09-16T14:32:11Z",
+          "updated": "2026-09-16T14:32:11Z",
+          "url": "https://arxiv.org/abs/2609.18736",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：tool-augmented"
+        },
+        {
+          "id": "2609.16268",
+          "version": 1,
+          "title": "Spurious Tool Use: When RL Agents Learn the Wrong Reason to Act",
+          "summary": "Large language model (LLM) agents increasingly interleave natural language reasoning with external tools such as web search and code execution. These tool-use policies are often optimized via reinforcement learning (RL), which can amplify spurious correlations in the training data. In this work, we study when and why RL-trained agents learn shortcut tool-selection policies: invoking tools based on superficial prompt cues rather than genuine task requirements. We construct controlled synthetic environments combining factual question answering and mathematical reasoning tasks, and inject cues that are strongly correlated with specific tools during training but causally irrelevant to tool necessity. Across counterfactual evaluations where cues are present but the associated tools are not required, agents exhibit substantial shortcut behavior, with spurious tool invocation rates increasing by up to 39 percent. However, shortcut formation is not universal: across the conditions we test, it arises only when the agent has already learned to use the target tool reliably, suggesting that task competence, rather than dataset imbalance alone, is a key factor in shortcut learning. A swapped-cue analysis further shows that semantic alignment between cues and tools substantially amplifies this effect. To mitigate these failures, we introduce a dense, decision-level reward in which an LLM judge evaluates the necessity of each tool call. This tool-necessity reward effectively suppresses cue-driven tool use while preserving task performance, providing a practical approach to improving the robustness of LLM agent tool-use policies.",
+          "authors": [
+            "Yiwei Yang",
+            "Haoxiang Zhang",
+            "Bingbing Wen",
+            "Yao Lu",
+            "Yuchen Wu",
+            "Lei Zhang",
+            "Julian McAuley",
+            "Pan Lu",
+            "Bill Howe"
+          ],
+          "published": "2026-09-14T19:31:04Z",
+          "updated": "2026-09-14T19:31:04Z",
+          "url": "https://arxiv.org/abs/2609.16268",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：llm agent"
+        },
+        {
+          "id": "2609.18135",
+          "version": 1,
+          "title": "DualSQL: Text-to-SQL with Multi-Agent Reinforcement Learning",
+          "summary": "State-of-the-art Text-to-SQL systems are typically multi-agent pipelines centered around two fundamental tasks: schema linking and SQL generation. However, existing work trains separate models for each task, failing to leverage the synergy between these interrelated tasks. In this work, we propose DualSQL, a new Text-to-SQL system consisting of two agents powered by a single model backbone. The agents share the same model weights and agentic scaffold, enabling joint optimization through a robust multi-agent reinforcement learning (RL) framework. We design three database access tools to facilitate effective multi-step reasoning grounded to interactions with the databases. To improve training and avoid model collapse, we introduce a set of rollout guardrail mechanisms that stabilizes multi-agent RL training, supporting DualSQL to keep improving during training. We also introduce a new SQL correctness metric, robust execution match (REX), to more accurately judge SQL correctness and assign reward signals. Being trained on only 3755 examples, DualSQL-4B achieves an impressive 68.0% execution accuracy on the BIRD development set, matching previous 7B models. DualSQL-8B further improves to 71.1%, outperforming previous state-of-the-art single-model solutions with 32B parameters. These results demonstrate the strength of joint multi-agent reinforcement learning for building high performance Text-to-SQL pipelines.",
+          "authors": [
+            "Shijie Chen",
+            "Yu Gan",
+            "Yeounoh Chung",
+            "Jiani Zhang",
+            "Quannan Li",
+            "Sravan Babu Bodapati",
+            "Cody J. Greer",
+            "Yu Su",
+            "Fatma Ozcan"
+          ],
+          "published": "2026-09-16T05:16:37Z",
+          "updated": "2026-09-16T05:16:37Z",
+          "url": "https://arxiv.org/abs/2609.18135",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：agentic"
+        }
+      ],
+      "note": ""
+    }
+  ]
+}

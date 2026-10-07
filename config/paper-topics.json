@@ -1,0 +1,47 @@
+{
+  "AI Agent": {
+    "direct": [
+      "llm agent",
+      "language agent",
+      "tool use",
+      "tool-augmented",
+      "agentic",
+      "multi-agent"
+    ],
+    "related": [
+      "embodied agent",
+      "robot planning",
+      "task planning",
+      "tool learning",
+      "decision making"
+    ]
+  },
+  "World Models": {
+    "direct": [
+      "world model",
+      "world models",
+      "world modeling"
+    ],
+    "related": [
+      "video prediction",
+      "environment model",
+      "model-based reinforcement learning",
+      "action-conditioned",
+      "visual dynamics"
+    ]
+  },
+  "VLM": {
+    "direct": [
+      "vision-language",
+      "vision language",
+      "visual language",
+      "multimodal large language"
+    ],
+    "related": [
+      "multimodal reasoning",
+      "visual reasoning",
+      "video understanding",
+      "visual grounding"
+    ]
+  }
+}

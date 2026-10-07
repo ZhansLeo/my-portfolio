@@ -8,7 +8,7 @@ CST = timezone(timedelta(hours=8))
 
 PROJECT_ROOT = os.path.join(os.path.dirname(__file__), "..")
 STATUS_FILE = os.path.join(PROJECT_ROOT, "public", "data", "status.json")
-PAPERS_FILE = os.path.join(PROJECT_ROOT, "public", "data", "papers.json")
+PAPERS_FILE = os.path.join(PROJECT_ROOT, "public", "data", "paper-feed.json")
 CONTENT_POSTS = os.path.join(PROJECT_ROOT, "content", "posts")
 CONTENT_WIKI = os.path.join(PROJECT_ROOT, "content", "wiki")
 OUT_DIR = os.path.join(PROJECT_ROOT, "out")
@@ -47,7 +47,7 @@ def count_papers():
         return 0
     try:
         with open(PAPERS_FILE, "r", encoding="utf-8") as f:
-            return len(json.load(f))
+            return sum(len(batch["papers"]) for batch in json.load(f).get("batches", []))
     except Exception:
         return 0
 

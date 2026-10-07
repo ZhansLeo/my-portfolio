@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const page = wikiPages.find((p) => p.slug === slug);
   if (!page) return {};
-  return { title: `${page.title} | Wiki`, description: `Wiki: ${page.title}` };
+  return { title: `${page.title} | 知识库`, description: `知识库: ${page.title}` };
 }
 
 export default async function WikiPage({ params }: Props) {
@@ -31,7 +31,7 @@ export default async function WikiPage({ params }: Props) {
           href="/wiki"
           className="mb-8 inline-block font-mono text-xs text-indigo-300/60 transition-colors hover:text-indigo-300"
         >
-          ← 返回 Wiki
+          ← 返回 知识库
         </Link>
 
         <article className="blog-content">

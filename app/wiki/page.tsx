@@ -7,16 +7,16 @@ export default function WikiPage() {
     <div className="site-page mx-auto max-w-3xl px-6 py-16 md:py-24">
       <Reveal>
         <h1 className="mb-4 text-3xl font-bold">
-          <span className="text-gradient">Wiki</span>
+          <span className="text-gradient">知识库</span>
         </h1>
         <p className="mb-10 text-white/40">
-          个人知识库，记录学习反思、笔记与参考资料。
+          按主题整理概念、方法与参考资料，持续修订。实验过程与日常思考记录在博客。
         </p>
       </Reveal>
 
       {wikiPages.length === 0 ? (
         <Reveal>
-          <p className="text-white/30">暂无 Wiki 页面。</p>
+          <p className="text-white/30">暂无 知识库 页面。</p>
         </Reveal>
       ) : (
         <div className="space-y-4">

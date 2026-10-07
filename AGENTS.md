@@ -11,9 +11,9 @@
 - Path alias: `@/*` → project root
 
 ## Repo
-- Single-page portfolio for 赵寒石
+- Personal research and engineering portfolio for 赵寒石
 - `app/page.tsx` — main page content
-- `app/layout.tsx` — root layout with Geist fonts, `lang="zh-CN"`
+- `app/layout.tsx` — root layout with self-hosted Noto Serif SC / Noto Sans SC, `lang="zh-CN"`
 - GitHub: `git@github.com:ZhansLeo/my-portfolio.git`
 
 ## Git Commit Convention
@@ -22,8 +22,8 @@
 - Body must describe **what changed from the previous commit**, not vague phrases like "update" or "fix bug"
 
 
-## Others
-1. 只用原生HTML、CSS；禁止外部框架；
-2. 正文宽度最多800px；
-3. HTML采用语义标签；CSS单独文件；
-4. 文件结构规范：页面放在pages文件夹，md文章放在articles文件夹。
+## 实现约定
+- 保持 Next.js App Router、React、TypeScript 与 GitHub Pages 静态导出的技术栈。
+- 可按需求引入必要依赖；保留语义结构、独立样式、响应式与无障碍支持。
+- 沿用 app 和 content 目录，不做无关迁移。
+- 草稿不得进入公开仓库或静态产物，发布工具只操作明确指定的文章和资源。
