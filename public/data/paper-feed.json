@@ -1,10 +1,111 @@
 {
   "version": 1,
-  "lastAttempt": "2026-09-17T13:46:09.015094+00:00",
-  "lastSuccess": "2026-09-17T13:46:09.015094+00:00",
+  "lastAttempt": "2026-10-07T13:38:28.435440+00:00",
+  "lastSuccess": "2026-10-07T13:38:28.435440+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261007T133828Z",
+      "createdAt": "2026-10-07T13:38:28.435440+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.06100",
+          "version": 1,
+          "title": "From Traces to Agentic Worlds: Agentic Language World Models for Interactive Environment Simulation",
+          "summary": "Realistic environment replicas are increasingly valuable for training and evaluating LLM agents, yet the original systems may be inaccessible or impractical to reproduce. We explore agentic language world modeling: rather than rebuilding an executable environment, a world model agent serves as the environment for a task agent and supports faithful and stateful simulation. We instantiate this paradigm with Trace2Env, a learning-free framework for settings where the original system is unavailable but historical interaction traces remain accessible. Trace2Env reconstructs these traces into a reusable environment worldbook containing environment schemas, grounded evidence, and induced behavioral knowledge. At runtime, the world model agent actively consults the worldbook together with persistent episodic state to infer each action's observation and lasting state effects. Across nine environments, Trace2Env improves both next-observation fidelity and long-horizon interaction consistency over conventional prompt-based LWMs. In multi-turn interaction, task agent actions generated against Trace2Env remain valid more often when replayed in the real environment, indicating that its simulated dynamics better preserve the consequences of earlier actions across successive turns. These results establish agentic language world modeling as an alternative direction for building realistic environment replicas without reconstructing the original executable system.",
+          "authors": [
+            "Quanyu Long",
+            "Xiao Chen",
+            "Jianda Chen",
+            "Haozhen Zhang",
+            "Qisheng Hu",
+            "Jianzhu Bao",
+            "Wenya Wang"
+          ],
+          "published": "2026-10-05T10:32:28Z",
+          "updated": "2026-10-05T10:32:28Z",
+          "url": "https://arxiv.org/abs/2610.06100",
+          "topics": [
+            "World Models",
+            "AI Agent"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.05782",
+          "version": 1,
+          "title": "Agentic-ZTA: A Multi-Agent Architecture for Autonomous Zero Trust Enforcement",
+          "summary": "Agentic AI is emerging as a promising paradigm for automating complex cybersecurity decisions, yet its use in enforcing zero trust introduces significant challenges in safety, reliability, and policy compliance. This paper presents Agentic AI based zero trust architecture (Agentic-ZTA) that operationalizes the NIST SP 800-207 ZTA architecture control loop through coordinated multi- agent decision pipeline. In the proposed framework, policy knowledge is embedded into a retrieval-augmented generation pipeline and retrieved at inference time as top-k relevant policies. Access requests are intercepted by the Policy Enforcement Point (PEP), enriched with contextual metadata. The request context is routed to a policy engine agent which invokes domain-specialized core agents first followed by supporting agents, if further evaluation needed. AI agents reason over access context, policy constraints and determine trust. The retrieved policies are embedded into agent prompt during inference time and agentic trust scores are aggregated and evaluated by a trust-algorithm, producing the final access decision for enforcement under continuous verification. We implement Agentic-ZTA in a testbed and evaluate it on representative access-control use cases scenarios. Our Agentic-ZTA framework achieves 95.0% accuracy, 93.9% precision, and 96.3% recall, and demonstrate the feasibility of enforcing zero trust using AI agents.",
+          "authors": [
+            "Shovan Roy",
+            "Lopamudra Praharaj",
+            "Maanak Gupta",
+            "Bhavani Thuraisingham"
+          ],
+          "published": "2026-10-05T04:31:29Z",
+          "updated": "2026-10-05T04:31:29Z",
+          "url": "https://arxiv.org/abs/2610.05782",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：agentic"
+        },
+        {
+          "id": "2610.07381",
+          "version": 1,
+          "title": "GeoWM: Efficient Direct World Modeling in Explicit Geometry",
+          "summary": "Modeling 3D scene geometry and its evolution over time is essential for autonomous driving and robotics. A common paradigm is to use world models to predict future images or latent representations of the environment and subsequently recover geometry from these predictions. However, this paradigm does not explicitly model geometric structure and typically relies on recursive rollouts to reach longer prediction horizons, leading to error accumulation and increasing computational cost. To address these limitations, we present GeoWM, a geometry world model that directly forecasts future scene geometry at specified future horizons without recursive rollout. The key idea is to leverage a geometry foundation model to transform observed RGB frames into a geometric history, which conditions a flow-matching transformer to predict the scene geometry at a specified future horizon. We further show that a lightweight camera-motion predictor can accurately estimate the future viewpoint, and that projecting the observed geometry into the predicted viewpoint provides an effective geometric prior for future geometry forecasting. Extensive experiments on four datasets spanning urban driving, aerial flight, and dynamic manipulation demonstrate that GeoWM outperforms the evaluated world models in forecasting depth, camera pose, and 3D scene geometry, while substantially reducing inference time at longer horizons.",
+          "authors": [
+            "Mehrdad Noori",
+            "Guile Wu",
+            "Sam Hosseini",
+            "Dongfeng Bai"
+          ],
+          "published": "2026-10-05T20:52:18Z",
+          "updated": "2026-10-05T20:52:18Z",
+          "url": "https://arxiv.org/abs/2610.07381",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.05240",
+          "version": 1,
+          "title": "Pythia: Toward Foundation World Models for Multimodal Time Series",
+          "summary": "Time-series foundation models offer a unified approach to forecasting across heterogeneous domains. Textual context and auxiliary observations provide complementary information about temporal dynamics, yet reusable multimodal predictive representations remain underexplored. We introduce Pythia, a foundation world model that learns context-conditioned latent dynamics across datasets through a joint-embedding predictive architecture. A stop-gradient numerical reference guides contextual corrections to predicted future states. A separate probabilistic decoder then adapts to the frozen predictive representation and observed history, decoupling world-model pretraining from observation-space forecasting. On MUSE, Pythia-Tiny's normalized mean absolute scaled error (MASE) and weighted sum quantile loss (WSQL) are 0.6879 and 0.4269, reducing errors by 6.26% and 5.00% relative to the strongest model evaluated in the published MUSE leaderboard. Through a series of controlled experiments, we investigate how to design a time-series world model through shared pretraining and how joint-embedding predictive learning can incorporate multimodal information. The results support separating predictive representation learning from probabilistic readout and show complementary contributions from entity descriptions, events, and covariates.",
+          "authors": [
+            "Xilin Dai",
+            "Hongzhou Chen",
+            "Yifan Hu",
+            "Yiding Liu",
+            "Zewei Dong",
+            "Jiang-Ming Yang"
+          ],
+          "published": "2026-10-04T14:12:17Z",
+          "updated": "2026-10-04T14:12:17Z",
+          "url": "https://arxiv.org/abs/2610.05240",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20260917T134609Z",
       "createdAt": "2026-09-17T13:46:09.015094+00:00",
