@@ -23,6 +23,25 @@ function parse(raw) {
 
 function renderer(kind, slug) {
   const md = new MarkdownIt({ html: false, linkify: false, typographer: false });
+  // CommonMark treats full-width punctuation as a word boundary, so e.g.
+  // **假设：**正文 otherwise stays literal. Extend only CJK strong boundaries;
+  // keep the normal tokenizer (and its code/escape handling) in control.
+  const InlineState = md.inline.State;
+  md.inline.State = class extends InlineState {
+    scanDelims(start, canSplitWord) {
+      const result = super.scanDelims(start, canSplitWord);
+      if (this.src[start] !== "*" || result.length !== 2) return result;
+      const before = this.src[start - 1] || "";
+      const after = this.src[start + result.length] || "";
+      if (/[。，：；！？、）》」』】”’]/u.test(before) && /\p{Script=Han}/u.test(after)) {
+        result.can_close = true;
+      }
+      if (/\p{Script=Han}/u.test(before) && /[“‘（《「『【]/u.test(after)) {
+        result.can_open = true;
+      }
+      return result;
+    }
+  };
   const headings = new Map();
   md.renderer.rules.heading_open = (tokens, idx, options, env, self) => {
     const text = tokens[idx + 1]?.content || "section";

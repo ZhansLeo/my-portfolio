@@ -34,7 +34,7 @@ export default async function WikiPage({ params }: Props) {
           ← 返回 知识库
         </Link>
 
-        <article className="blog-content">
+        <article className="blog-content wiki-content">
           <header className="mb-8">
             <h1 className="mb-3 text-3xl font-bold">
               <span className="text-gradient">{page.title}</span>

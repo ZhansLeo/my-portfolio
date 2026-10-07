@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@fontsource/noto-serif-sc/400.css";
 import "@fontsource/noto-serif-sc/600.css";
 import "@fontsource/noto-sans-sc/400.css";
 import "katex/dist/katex.min.css";

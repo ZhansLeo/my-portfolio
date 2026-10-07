@@ -33,3 +33,21 @@ test("existing content remains renderable", () => {
   assert.ok(load("blog").some(p => p.slug === "hello-agent"));
   assert.ok(load("wiki").some(p => p.slug === "home"));
 });
+test("Chinese punctuation can end bold text without added spaces", () => {
+  const html = renderer("wiki", "test").render("**假设：**在相同条件下。**CEM（交叉熵方法）**的搜索。中文**“结论”**继续。");
+  assert.ok(html.includes("<strong>假设：</strong>在"));
+  assert.ok(html.includes("<strong>CEM（交叉熵方法）</strong>的"));
+  assert.ok(html.includes("<strong>“结论”</strong>继续"));
+});
+test("CJK emphasis preserves escaped markers and code literals", () => {
+  const tick = String.fromCharCode(96);
+  const html = renderer("wiki", "test").render(tick + "**假设：**正文" + tick + "\n\n\\*\\*假设：\\*\\*正文");
+  assert.ok(html.includes("<code>**假设：**正文</code>"));
+  assert.ok(!html.includes("<strong>"));
+});
+test("VLN note has no unrendered strong delimiters", () => {
+  const note = load("wiki").find(p => p.slug === "vln-learning-notes");
+  assert.ok(note);
+  assert.ok(!note.html.includes("**"));
+  assert.ok(note.html.includes("<strong>闭环修正。</strong>"));
+});

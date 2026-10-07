@@ -109,6 +109,8 @@ a { text-underline-offset: .3em; }
 .blog-content ol li::before { display: none; }
 .blog-content .katex-display { overflow-x: auto; overflow-y: hidden; padding: .5rem 0; }
 .blog-content p, .blog-content li { line-height: 1.95; }
+.wiki-content { font-family: var(--font-heading); font-size: 1.0625rem; font-weight: 400; }
+.wiki-content strong { font-weight: 600; }
 .papers-status { padding: 1rem 0; font-size: .8rem; color: #adb9c8; border-bottom: 1px solid #d8e1f226; }
 .paper-batch { margin-top: 3rem; }
 .site-page .paper-batch > h2 { font-size: 1.3rem; margin-bottom: 1.5rem; }
