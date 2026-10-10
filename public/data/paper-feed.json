@@ -1,10 +1,118 @@
 {
   "version": 1,
-  "lastAttempt": "2026-10-07T13:38:28.435440+00:00",
-  "lastSuccess": "2026-10-07T13:38:28.435440+00:00",
+  "lastAttempt": "2026-10-10T21:52:54.892145+00:00",
+  "lastSuccess": "2026-10-10T21:52:54.892145+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261010T215254Z",
+      "createdAt": "2026-10-10T21:52:54.892145+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.11444",
+          "version": 1,
+          "title": "Learning to Retrieve: Internalizing Memory Retrieval for Video World Models",
+          "summary": "Video world models aim to generate explorable, 3D-consistent scene videos conditioned on camera trajectories. Existing approaches often rely on external memory systems that explicitly retrieve previously observed content to mitigate scene drift during long-horizon generation. However, these auxiliary memory pathways operate outside the model's internal generative dynamics, preventing the model from intrinsically learning when and what historical information should be retrieved. We propose to internalize memory retrieval into the generation process, allowing retrieval to emerge as an intrinsic behavior of the video world model rather than relying on an external memory system. Based on this principle, we introduce \\textbf{Learning-to-Retrieve (L2R)}, which repurposes the model's persistent internal state as a memory for historical context. A camera-conditioned retrieval gate selectively accesses relevant historical information from this state, determining \\textit{what to retrieve}, while a retrieval trigger determines \\textit{when to retrieve}. We further supervise the trigger with a 3D re-visibility signal, activating retrieval when previously observed content re-enters the current view while otherwise preserving the existing context. Together, these components enable the model to intrinsically acquire memory retrieval behavior and incorporate relevant historical observations into generation without a separate retrieval pathway. Across multiple base models and camera-revisit benchmarks, L2R improves long-term scene consistency while eliminating the need for an external memory bank or 3D conditions. https://jkhu29.github.io/l2r",
+          "authors": [
+            "JiaKui Hu",
+            "Tailai Chen",
+            "Yuqi Pan",
+            "Xuerui Qiu",
+            "Jialun Liu",
+            "Xiao Cao",
+            "Zhenxin Zhu",
+            "Guang Chen",
+            "Hangjun Ye",
+            "Bing Wang",
+            "Yanye Lu"
+          ],
+          "published": "2026-10-08T08:01:36Z",
+          "updated": "2026-10-08T08:01:36Z",
+          "url": "https://arxiv.org/abs/2610.11444",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.11467",
+          "version": 1,
+          "title": "GROB: A Multi-Agent Architecture for Public-Trace Investigation of Candidate Agentic Activity",
+          "summary": "We present GROB, a multi-agent architecture for investigating candidate autonomous-agent activity through public Internet traces when privileged telemetry is unavailable. The system performs controlled, read-only collection of public traces and preserves selected observations for later resolution. In a frozen September 2026 corpus, several collected traces became more informative as additional public evidence emerged. The strongest result concerns Census-labelled identifiers captured on 9 September. Public revision records later resolved these identifiers to specific Census requests from 16 - 17 June. Other results show weaker links between traces collected by GROB and evidence reconstructed or reported later. These links vary in strength, and only some can be tied to specific public records. The results show that sparse public traces can remain useful even before their significance is fully understood. Such evidence can support later reconstruction, but public traces alone do not establish organizational attribution. Execution identity presents a separate problem, as continuity of agent identity remains an active research question for autonomous language-model agents.",
+          "authors": [
+            "Chiara Bonfanti",
+            "Cataldo Basile"
+          ],
+          "published": "2026-10-08T08:17:45Z",
+          "updated": "2026-10-08T08:17:45Z",
+          "url": "https://arxiv.org/abs/2610.11467",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：agentic"
+        },
+        {
+          "id": "2610.11527",
+          "version": 1,
+          "title": "AtomWorld-Mirror: Macro-Step World Modeling of Critical Evolution Backbones for Materials Dynamics",
+          "summary": "Atomistic simulation is a fundamental tool for studying long-term materials evolution, from diffusion and defect dynamics to interfacial reactions and fracture. Yet conventional simulators typically advance at microscopic resolution, spending substantial computation on low-impact local updates before reaching structurally consequential states, an evolutionary-resolution bottleneck that limits long-horizon simulation. We propose AtomWorld-Mirror, a time-aware macro-step world model for the critical evolution backbone of atomic systems. For Step-Wise atomistic simulation, AtomWorld-Mirror distills short micro-event segments into physically reachable transitions between key states, jointly predicting sparse structural edits and accumulated physical time through latent macro-step dynamics. Local reachability, inventory conservation, and continuous-time consistency constrain each transition. By amortizing local atomic physics into a reusable latent macro model and replacing explicit micro-event replay with macro-step inference, this formulation provides a path toward substantially faster prediction of long-term materials evolution while preserving structural validity and time semantics. Across five atomic systems, spanning Cu-rich RPV steel irradiation aging, Cu-Zr metallic glass, and Li$_3$N-based anti-perovskite solid electrolyte, macro-step inference delivers a speed up of $10^3$ to $10^4$ times over event-by-event simulation.",
+          "authors": [
+            "Ziming Pan",
+            "Ruge Zhang",
+            "Haozhi Han",
+            "Junkai Zhou",
+            "Xingyuan Chen",
+            "Yifeng Chen",
+            "Yunquan Zhang",
+            "Ting Cao",
+            "Yunxin Liu",
+            "Kun Li"
+          ],
+          "published": "2026-10-08T08:56:53Z",
+          "updated": "2026-10-08T08:56:53Z",
+          "url": "https://arxiv.org/abs/2610.11527",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.11942",
+          "version": 1,
+          "title": "Right Screen, Wrong Transition: World Models as Verifiers for GUI Agents",
+          "summary": "A login screen that appears after a tap on Sign in is expected; the same screen after a tap on View order is an attack. For GUI agents, safety is therefore a property of the transition rather than of the screen, and a monitor that inspects only screens can be defeated by reusing a legitimate one. Judging a transition requires an expectation of what should have followed the action. Existing GUI world models provide one, but they output it as text, code, or images, so checking it against the observed screen requires a second model to judge the two. We argue that a world model meant for verification should instead predict in the space in which observations are encoded, and present LGWM, a decoder-free, action-conditioned world model that predicts the representation of the next screen directly, trained without semantic annotation on 1.85M real GUI transitions. Verification reduces to a vector comparison, and the same signal reveals whether a mismatch is harmful. We evaluate on RSWT-BENCH, a diagnostic where each credential screen appears under both a legitimate and a hijacked transition, so detectors that see only the screen are at chance by construction. The training-free score reaches 0.987 AUC at 17 ms per decision, on par with the strongest closed-source VLMs and about ten AUC points above generative GUI world models at over three orders of magnitude lower latency. The residual direction reaches 0.953 AUC at separating harmful from benign violations, where prompted VLMs are near chance. Further analyses show that the prediction is a usable future state rather than an anomaly score. World models have mostly served as simulators or planners; our results point to a third role, verification, for which predicting in representation space is the natural design.",
+          "authors": [
+            "Jiaming Zhang",
+            "Xuan Wang",
+            "Fuyao Zhang",
+            "Yang Cao",
+            "Lingjuan Lyu",
+            "Wei Yang Bryan Lim"
+          ],
+          "published": "2026-10-08T13:33:23Z",
+          "updated": "2026-10-08T13:33:23Z",
+          "url": "https://arxiv.org/abs/2610.11942",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261007T133828Z",
       "createdAt": "2026-10-07T13:38:28.435440+00:00",
