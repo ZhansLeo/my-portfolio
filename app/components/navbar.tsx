@@ -13,11 +13,9 @@ const coreLinks = [
 ];
 
 const moreLinks = [
-  { href: "/architecture", label: "技术架构" },
   { href: "/rss-reader", label: "RSS" },
   { href: "/digest", label: "周报" },
   { href: "/status", label: "状态" },
-  { href: "/agent", label: "Agent" },
 ];
 
 const allLinks = [...coreLinks, ...moreLinks];
