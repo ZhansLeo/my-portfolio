@@ -1,10 +1,118 @@
 {
   "version": 1,
-  "lastAttempt": "2026-10-10T21:52:54.892145+00:00",
-  "lastSuccess": "2026-10-10T21:52:54.892145+00:00",
+  "lastAttempt": "2026-10-13T22:56:54.387674+00:00",
+  "lastSuccess": "2026-10-13T22:56:54.387674+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261013T225654Z",
+      "createdAt": "2026-10-13T22:56:54.387674+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.09335",
+          "version": 1,
+          "title": "SearchWorld: Spatial Value-Grounded Imagination for UAV Object Search via World Models",
+          "summary": "Autonomous unmanned aerial vehicle (UAV) object search involves a closed loop of perception, decision-making, and action under partial observability. Urban environments pose several challenges: large search areas and narrow egocentric views limit coverage, dense 3D geometry constrains safe motion, and open-world instructions require identifying a specific target among distractors. Many existing methods mitigate partial observability through explicit maps or memory representations, yet remain largely reactive, reasoning over past observations without explicitly predicting future states. World models enable prospective reasoning through imagined rollouts. However, image-generating world models can incur high inference latency, while spatially grounded planning remains challenging for latent world models. We propose SearchWorld, a recurrent state-space world model that connects explicit spatial memory with value-guided imagination. The model maintains BEV exploration and obstacle memory and decodes a task-aware spatial value layer to guide search. A cognition-action network uses this learned spatial value prior to improve the policy through imagined rollouts, without training a separate scalar critic. Training progresses from world-model learning to expert imitation and imagination-based exploration refinement. On UAV-ON, SearchWorld improves the success rate to 23.8% (19.5% for the strongest published agent) and raises oracle success to 35.5%, while remaining robust on unseen scenes (19.9% success rate). By grounding imagination in explicit spatial representations, SearchWorld enables UAV agents to plan prospectively rather than react.",
+          "authors": [
+            "Yatai Ji",
+            "Zhengqiu Zhu",
+            "Yong Zhao",
+            "Yue Hu",
+            "Fanglong Yao",
+            "Chen Gao",
+            "Pengfei Zhu",
+            "Quanjun Yin"
+          ],
+          "published": "2026-10-07T02:51:02Z",
+          "updated": "2026-10-07T02:51:02Z",
+          "url": "https://arxiv.org/abs/2610.09335",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.10858",
+          "version": 1,
+          "title": "RFChipAgent: Multi-Agentic AI Flow for Analog/RF Chip Design",
+          "summary": "Analog/RF circuits remain the critical interface between digital computation and the physical world, and emerging standards from Wi-Fi 7 to 6G place stringent demands on them, yet analog/RF design remains one of the most labor-intensive steps in chip development. We present RFChipAgent, a first-of-its-kind multi-agent flow of large language model (LLM) agents for end-to-end analog/RF circuit design automation, in which AI agents collaboratively orchestrate the complete design flow under human supervision. RFChipAgent is built around four technical pillars. First, a multimodal retrieval-augmented generation (RAG) subsystem with private per-document FAISS indexing extracts design knowledge from existing engineering documentation. Second, a topology agent drives topology selection, and a schematic and testbench agent automates circuit and testbench assembly. Third, a closed-loop hybrid circuit-sizing engine combines Tree-structured Parzen Estimator (TPE) and CMA-ES optimization, evaluating every candidate in a simulator-in-the-loop framework. Fourth, a trust-scored simulation database accumulates verified performance data and builds an adaptive optimization model that informs subsequent trials. We validate RFChipAgent on a family of GF22FDSOI 60 GHz wideband mm-wave low-noise amplifier (LNA) topologies, demonstrating automated topology generation, specification-driven design-space exploration, and simulator-guided optimization. Experimental results show substantial reductions in design effort while maintaining signoff-quality verification. This work establishes a foundation for LLM-driven multi-agent electronic design automation (EDA) for analog/RF circuits.",
+          "authors": [
+            "Awani Khodkumbhe",
+            "Yunfei Feng",
+            "Raj Rangarajan",
+            "Kevin Wang",
+            "Kamal Sahota"
+          ],
+          "published": "2026-10-07T20:02:33Z",
+          "updated": "2026-10-07T20:02:33Z",
+          "url": "https://arxiv.org/abs/2610.10858",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：agentic"
+        },
+        {
+          "id": "2610.09785",
+          "version": 1,
+          "title": "UltraWorld: Learning Interactive Ultrasound World Models from Untracked Clinical Videos with Acoustic Sampling Map",
+          "summary": "World models can enable autonomous ultrasound scanning by predicting the outcomes of probe motions from local observations. Learning this action--observation relationship typically relies on synchronized video--pose pairs, which are costly to collect at scale and largely unavailable in routine clinical recordings. Reliable action following further requires modeling ultrasound's cross-sectional sampling geometry. We present UltraWorld, a self-distillation recipe that transfers priors from clinical ultrasound videos into interactive world models without real action annotations. Starting from clinical videos, we adapt a video foundation model into an ultrasound generator conditioned on reference images and anatomical masks. Anatomical masks sampled along programmable trajectories through 3D anatomy provide spatial guidance for synthesizing action--video pairs. We then use these synthetic pairs to self-distill the generator into a world model that predicts future observations from local observations and actions, without requiring anatomical masks or other 3D assets at inference time. To further improve action following, we introduce the Acoustic Sampling Map (AsMap), which represents probe poses and imaging settings as pixel-wise 3D sampling positions, beam directions, and depths. Experiments demonstrate improved prediction fidelity and action following. Across nine simulated closed-loop local planning episodes, UltraWorld reduces the mean final distance to the goal and orientation error by 29\\% and 38\\%, respectively, compared with visual servoing. Project Page: https://ultraworld-project.github.io/.",
+          "authors": [
+            "Keke Yang",
+            "Erqi Wang",
+            "Sainan Guan",
+            "Hongliang Ren"
+          ],
+          "published": "2026-10-07T10:02:28Z",
+          "updated": "2026-10-07T10:02:28Z",
+          "url": "https://arxiv.org/abs/2610.09785",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.10515",
+          "version": 1,
+          "title": "RoboJEPA: Scaling Robotic Latent World Models",
+          "summary": "Latent world models have shown a remarkable ability to predict future states and to plan in the real world. In practice, however, we lack a principled way to estimate how their capabilities scale with model size, data, and compute, an open problem that slows progress in the field. In this work we present RoboJEPA, a world model based on the Joint Embedding Predictive Architecture (JEPA) and trained on a large-scale dataset spanning 12 robotic embodiments. We show that RoboJEPA's imagination error, the error of its latent rollouts, follows a second-order power law in compute, allowing us to predict model quality well beyond the scale at which the law is fit. We further show that downstream robotic planning performance improves predictably with compute, and that imagination error is strongly correlated with it, making it a reliable proxy for real-robot evaluation. Finally, we demonstrate that latent world models can be deployed zero-shot as robotic agents, planning toward a single goal image to solve tasks requiring long-horizon planning on real hardware. We release all model checkpoints together with our training and robot deployment code. To our knowledge, this is the first work to establish scaling laws for multi-embodiment robotic world models trained on real robot data, and RoboJEPA, at 8B parameters, is the largest JEPA predictor model trained to date.",
+          "authors": [
+            "Artem Zholus",
+            "Nicolas Beltran-Velez",
+            "Jianhao Yuan",
+            "Sarath Chandar",
+            "Tushar Nagarajan",
+            "Daniel Severo",
+            "Koustuv Sinha",
+            "Michal Drozdzal",
+            "Adriana Romero Soriano",
+            "Jeannette Bohg",
+            "Nicolas Ballas",
+            "Mahmoud Assran"
+          ],
+          "published": "2026-10-07T17:54:42Z",
+          "updated": "2026-10-07T17:54:42Z",
+          "url": "https://arxiv.org/abs/2610.10515",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261010T215254Z",
       "createdAt": "2026-10-10T21:52:54.892145+00:00",
