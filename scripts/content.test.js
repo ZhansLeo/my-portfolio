@@ -2,6 +2,29 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { parse, renderer, load } = require("./content");
 const { identity, references } = require("./writing");
+const fs = require("node:fs");
+const path = require("node:path");
+const os = require("node:os");
+const { execFileSync } = require("node:child_process");
+
+test("content generation creates missing output directories in a fresh checkout", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "portfolio-content-"));
+  try {
+    fs.mkdirSync(path.join(root, "scripts"));
+    fs.mkdirSync(path.join(root, "public"));
+    fs.copyFileSync(path.join(__dirname, "content.js"), path.join(root, "scripts/content.js"));
+    fs.cpSync(path.join(__dirname, "../content"), path.join(root, "content"), { recursive: true });
+    execFileSync(process.execPath, ["-e", "const c = require('./scripts/content'); c.generate('blog'); c.generate('wiki');"], {
+      cwd: root,
+      env: { ...process.env, NODE_PATH: path.join(__dirname, "../node_modules") },
+    });
+    for (const file of ["app/blog/posts-data.ts", "app/wiki/pages-data.ts", "public/feed.xml"]) {
+      assert.ok(fs.statSync(path.join(root, file)).size > 0, file);
+    }
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
 test("raw HTML and script URLs cannot execute", () => {
   const html = renderer("blog", "test").render('<script>alert(1)</script>\n\n<img src=x onerror=alert(1)>\n\n[x](javascript:alert(1))\n\n![x](data:image/svg+xml;base64,PHN2Zz4=)');
   assert.ok(!html.includes("<script>"));

@@ -138,6 +138,8 @@ function generate(kind) {
   const records = load(kind);
   const output = kind === "blog" ? "app/blog/posts-data.ts" : "app/wiki/pages-data.ts";
   const name = kind === "blog" ? "posts" : "wikiPages";
+  // Generated-only directories are absent in a fresh Git checkout.
+  fs.mkdirSync(path.dirname(path.join(ROOT, output)), { recursive: true });
   // JSON serialization prevents frontmatter from becoming executable TypeScript.
   fs.writeFileSync(path.join(ROOT, output), "export const " + name + " = " + JSON.stringify(records, null, 2) + ";\n");
   if (kind === "blog") {
