@@ -1,0 +1,37 @@
+{
+  "home": {
+    "title": "Notes index",
+    "description": "",
+    "tags": ["Index"]
+  },
+  "video-understanding-map": {
+    "title": "Video understanding: from representations to online reasoning and embodied action",
+    "description": "A reading map of public work by Limin Wang and collaborators, connecting video representations, long contexts, active evidence gathering, and online understanding with VLN practice.",
+    "tags": ["Video understanding", "VLM", "Video reasoning", "Paper notes"]
+  },
+  "vln-learning-notes": {
+    "title": "Learning VLN: from tasks and spatial representations to continuous execution",
+    "description": "Reading notes on tasks, world models, spatial representations, streaming memory, progress tracking, evidence gathering, and continuous execution with DualVLN, alongside my ideas about persistent subgoals and questions to test.",
+    "tags": ["VLN", "Embodied intelligence", "World models", "Spatial representations", "Streaming memory", "Paper notes"]
+  },
+  "agent-architecture": {
+    "title": "Designing an always-on personal agent",
+    "description": "",
+    "tags": ["Agents", "Architecture", "LLMs", "Memory"]
+  },
+  "github-actions": {
+    "title": "Setting up automatic deployment with GitHub Actions",
+    "description": "",
+    "tags": ["DevOps", "CI/CD", "GitHub", "CloudBase"]
+  },
+  "skill-reflection": {
+    "title": "Reflections on building a paper-collection skill",
+    "description": "",
+    "tags": ["Skills", "Papers", "Agents", "Learning", "arXiv"]
+  },
+  "zero-dependency": {
+    "title": "What I learned from a zero-dependency approach",
+    "description": "",
+    "tags": ["Principles", "Engineering", "Dependencies"]
+  }
+}

@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-blog.js && node scripts/generate-wiki.js && node scripts/parse-rss.js && python scripts/build_status.py && python scripts/build_digest.py",
+    "prebuild": "node scripts/generate-blog.js && node scripts/generate-wiki.js && node scripts/generate-notes.js && node scripts/parse-rss.js && python scripts/build_status.py && python scripts/build_digest.py",
     "build": "next build",
-    "check": "node scripts/check.js",
+    "check": "node scripts/check.js && node scripts/check-book.js",
     "start": "next start",
     "lint": "eslint",
     "deploy": "node -e \"console.log('发布方式：推送 master 后由 GitHub Actions 自动部署。文章可用 npm run content:publish。')\"",
@@ -15,11 +15,16 @@
     "content:stage": "node scripts/writing.js stage",
     "content:publish": "node scripts/writing.js publish",
     "test:content": "node --test scripts/content.test.js",
-    "papers:collect": "python scripts/collect_papers.py"
+    "papers:collect": "python scripts/collect_papers.py",
+    "predev": "node scripts/generate-blog.js && node scripts/generate-wiki.js && node scripts/generate-notes.js",
+    "build:preview": "npm run predev && next build",
+    "preview": "node scripts/serve-preview.js"
   },
   "dependencies": {
     "@fontsource/noto-sans-sc": "^5.3.0",
     "@fontsource/noto-serif-sc": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.1",
+    "@fontsource/source-serif-4": "^5.3.1",
     "katex": "^0.18.7",
     "markdown-it": "^15.0.2",
     "next": "^16.3.5",

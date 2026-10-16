@@ -56,3 +56,6 @@ data/rss-items/
 /drafts/
 /.preview/
 /.playwright-mcp/
+
+# Generated Chinese notes with bilingual navigation
+app/book/notes-data.ts

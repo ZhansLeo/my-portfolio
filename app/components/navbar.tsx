@@ -1,194 +1,22 @@
 "use client";
-
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useRef, useEffect } from "react";
-
-const coreLinks = [
-  { href: "/", label: "首页" },
-  { href: "/about", label: "关于我" },
-  { href: "/blog", label: "博客" },
-  { href: "/wiki", label: "知识库" },
-  { href: "/papers", label: "论文追踪" },
-];
-
-const moreLinks = [
-  { href: "/rss-reader", label: "RSS" },
-  { href: "/digest", label: "周报" },
-  { href: "/status", label: "状态" },
-];
-
-const allLinks = [...coreLinks, ...moreLinks];
-
-function isActive(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
-  return pathname.startsWith(href);
-}
-
-function NavLink({ href, label }: { href: string; label: string }) {
-  const pathname = usePathname();
-  const active = isActive(pathname, href);
-  return (
-    <Link
-      href={href}
-      className={`rounded-full px-3 py-1.5 font-mono text-xs transition-colors ${
-        active
-          ? "font-medium text-[#a9cbff]"
-          : "text-white/65 hover:text-white/70"
-      }`}
-    >
-      {label}
-    </Link>
-  );
-}
-
-function DropdownLink({
-  href,
-  label,
-  icon,
-  onClick,
-}: {
-  href: string;
-  label: string;
-  icon: string;
-  onClick?: () => void;
-}) {
-  const pathname = usePathname();
-  const active = isActive(pathname, href);
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
-        active
-          ? "bg-white/10 text-white"
-          : "text-white/50 hover:bg-white/[0.06] hover:text-white/75"
-      }`}
-    >
-      <span className="font-mono text-xs opacity-50">{icon}</span>
-      <span className="font-mono text-xs">{label}</span>
-    </Link>
-  );
-}
+import { useState, useRef } from "react";
+import { base, copy, url, type Language } from "../book/content";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const pathname = usePathname().replace(new RegExp(`^${base}(?=/|$)`), "");
+  const language: Language = /^\/zh(?:\/|$)/.test(pathname) ? "zh" : "en";
+  const path = pathname.replace(/^\/zh(?=\/|$)/, "").replace(/^\/+|\/+$/g, "");
+  const c = copy[language];
   const [open, setOpen] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07] bg-[#080c18]/82 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[62rem] items-center justify-between px-4 py-3 md:px-0">
-        <Link
-          href="/"
-          className="font-mono text-sm font-semibold tracking-wide text-[#eef2ff]"
-        >
-          赵寒石
-        </Link>
-
-        {/* Desktop */}
-        <div className="hidden items-center gap-1 md:flex">
-          {coreLinks.map((link) => (
-            <NavLink key={link.href} href={link.href} label={link.label} />
-          ))}
-
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setOpen(!open)}
-              onMouseEnter={() => setOpen(true)}
-              className={`rounded-full px-3 py-1.5 font-mono text-xs transition-colors ${
-                moreLinks.some((l) => isActive(pathname, l.href))
-                  ? "font-medium text-[#a9cbff]"
-                  : "text-white/65 hover:text-white/70"
-              }`}
-            >
-              <span className="inline-flex items-center gap-1">
-                <svg width="12" height="3" viewBox="0 0 12 3" fill="currentColor">
-                  <circle cx="1.5" cy="1.5" r="1.5" />
-                  <circle cx="6" cy="1.5" r="1.5" />
-                  <circle cx="10.5" cy="1.5" r="1.5" />
-                </svg>
-                更多
-              </span>
-            </button>
-
-            {open && (
-              <div
-                className="absolute right-0 top-full mt-2 w-44 rounded-xl border border-white/10 bg-[#101728]/95 p-1.5 shadow-lg shadow-black/30 backdrop-blur-xl"
-                onMouseLeave={() => setOpen(false)}
-              >
-                {moreLinks.map((link, i) => (
-                  <DropdownLink
-                    key={link.href}
-                    href={link.href}
-                    label={link.label}
-                    icon={["●", "○", "◇", "△", "▽", "◆"][i]}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1 p-2 md:hidden"
-          aria-label="菜单" aria-expanded={mobileOpen}
-        >
-          <span
-            className={`block h-0.5 w-4 rounded bg-white/60 transition-transform ${
-              mobileOpen ? "translate-y-1.5 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-4 rounded bg-white/60 transition-opacity ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-4 rounded bg-white/60 transition-transform ${
-              mobileOpen ? "-translate-y-1.5 -rotate-45" : ""
-            }`}
-          />
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-t border-white/5 bg-[#080c18]/95 px-6 pb-4 pt-2 md:hidden">
-          <div className="flex flex-col gap-0.5">
-            {allLinks.map((link) => {
-              const active = isActive(pathname, link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`rounded-lg px-3 py-2.5 font-mono text-sm transition-colors ${
-                    active
-                      ? "bg-white/10 text-white"
-                      : "text-white/65 hover:bg-white/[0.05] hover:text-white/70"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </nav>
-  );
+  const button = useRef<HTMLButtonElement>(null);
+  const sections = ["", "research", "projects", "notes", "personal"];
+  const archive = !sections.includes(path.split("/")[0]) && !path.startsWith("wiki");
+  return <><nav className="book-nav" aria-label={language === "zh" ? "主导航" : "Main navigation"} onKeyDown={event => { if (event.key === "Escape") { setOpen(false); button.current?.focus(); } }}>
+    <div className="book-nav-inner"><a className="book-brand" href={url("", language)}>{c.name}</a>
+      <div className="desktop-links">{sections.map((section, i) => <a key={section} href={url(section, language)} aria-current={path === section || (section && path.startsWith(section + "/")) ? "page" : undefined}>{c.nav[i]}</a>)}</div>
+      <div className="book-nav-actions">{!archive && <a className="language-switch" href={url(path.startsWith("wiki") ? "notes" : path, language === "en" ? "zh" : "en")} lang={language === "en" ? "zh-CN" : "en"} hrefLang={language === "en" ? "zh-CN" : "en"} data-language-switch>{language === "en" ? "中文" : "English"}</a>}
+        <button ref={button} className="menu-toggle" aria-label={language === "en" ? (open ? "Close menu" : "Open menu") : (open ? "关闭菜单" : "打开菜单")} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.4">{open ? <path d="m6 6 12 12M6 18 18 6"/> : <path d="M4 8h16M4 16h16"/>}</svg></button></div>
+    </div><div id="mobile-navigation" className="mobile-links" hidden={!open}>{sections.map((section, i) => <a key={section} href={url(section, language)} onClick={() => setOpen(false)} aria-current={path === section || (section && path.startsWith(section + "/")) ? "page" : undefined}>{c.nav[i]}</a>)}</div>
+  </nav>{archive && <div className="archive-notice" lang="zh-CN">历史归档 · 保留原文与原有链接。<a href={url()}>返回新首页</a></div>}</>;
 }
