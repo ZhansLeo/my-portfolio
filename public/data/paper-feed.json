@@ -1,10 +1,108 @@
 {
   "version": 1,
-  "lastAttempt": "2026-10-20T11:52:39.347898+00:00",
-  "lastSuccess": "2026-10-17T10:59:04.391515+00:00",
-  "status": "error",
-  "message": "最近一次采集未完成，保留上次成功结果，稍后重试。",
+  "lastAttempt": "2026-10-20T17:21:56.869890+00:00",
+  "lastSuccess": "2026-10-20T17:21:56.869890+00:00",
+  "status": "ok",
+  "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261020T172156Z",
+      "createdAt": "2026-10-20T17:21:56.869890+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.25170",
+          "version": 1,
+          "title": "World Models, Trees and Foundation Models for Retail Forecasting: Evidence from Four Public Data Sets",
+          "summary": "A retailer makes different decisions at different grains of the product, store and time hierarchy: store orders for an item in a store, supplier funding for an item across stores, category performance by store, and the financial plan for the chain. Which forecasting model to use depends on the grain. This paper compares models at each grain on four public data sets (M5, six Dominick's categories, Breakfast at the Frat, and Corporación Favorita, the last kept out of all development), over rolling forecast origins with paired tests and model confidence sets. It covers price and promotion through the plan inputs these data record, not product, assortment or place. The models are a world model that carries each item's state forward under the price and promotion plan, the same network without that state, LightGBM, the Temporal Fusion Transformer, TimesFM, Chronos-Bolt, Timestral, seasonal naive, and an equal-weight average of the world model, LightGBM and TimesFM given the plan. The answer changed with the grain. For an item by store and an item across stores, the average had the lowest error on seven and eight of nine data sets, and the 90% confidence set held a median of 1 and 2 models. For a category by store, a category and the chain total, the lowest-error model differed between data sets and a median of 4 of nine models were not separated by the four to six windows available. For category-by-store planning cost, the average or LightGBM was lowest on seven of eight data sets, and the world model was lowest only on M5; it was behind LightGBM item by store on six of eight. Every trained model used the plan, and on the weekly promotion-driven data pretrained models were less accurate without it. These results hold for these data sets; a forecast solved across all four Ps, or a retailer's own data, may give different results. Every model, test and change that lost is reported.",
+          "authors": [
+            "Karthik Iyer",
+            "Madan Dabbeeru"
+          ],
+          "published": "2026-10-18T10:50:36Z",
+          "updated": "2026-10-18T10:50:36Z",
+          "url": "https://arxiv.org/abs/2610.25170",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.24845",
+          "version": 1,
+          "title": "AgentSoV: Virtual Sensing for LLM Multi-Agent Systems via Stream of Variation",
+          "summary": "Large language model (LLM) multi-agent systems (MASs) solve complex tasks through interacting agents, yet their reliability is difficult to analyze because failures depend on both individual agents and how information and errors propagate across the system. Existing approaches largely treat this as post-hoc failure attribution, but do not provide a common model across heterogeneous MAS architectures or support broader analysis of information influence and observability. We introduce AgentSoV, a virtual-sensing framework that models MAS execution as a stochastic dynamic system through Stream of Variation (SoV). AgentSoV maps heterogeneous trajectories into diagnostic stages, constructs virtual measurements from observable outputs, and learns cross-stage variation propagation with a state-space model. Its representation is architecture-aware in stage dependencies yet architecture-agnostic in analytical language, supporting chain-structured, orchestration-based, and directed acyclic graph (DAG)-structured MASs. Without re-executing the MAS, AgentSoV supports three system-level analyses: failure attribution identifies where abnormal variation enters; stage-input influence quantifies how strongly intermediate inputs affect downstream outcomes; and virtual-sensor placement selects complementary observations under a monitoring budget. Experiments across multiple MAS architectures demonstrate a unified approach to fault localization, information influence, and observability. AgentSoV reframes agentic execution as a dynamic system to model rather than merely text to inspect, providing insights for MAS structure and component design.",
+          "authors": [
+            "Congjing Zhang",
+            "Siyuan Xu",
+            "Yunfei Bai",
+            "Ke Ren",
+            "Xiaoning Qian",
+            "Shuai Huang"
+          ],
+          "published": "2026-10-17T19:48:14Z",
+          "updated": "2026-10-17T19:48:14Z",
+          "url": "https://arxiv.org/abs/2610.24845",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：agentic"
+        },
+        {
+          "id": "2610.25666",
+          "version": 1,
+          "title": "Frechet Forcing: Training Long-Horizon Streaming World Models from Short Clips",
+          "summary": "Streaming video world models generate the future chunk by chunk, conditioned on their own past and a stream of actions. Trained on short clips, they drift once a rollout exceeds the training horizon, as prediction errors re-enter the context and compound. A common remedy is to train the model on its own rollouts via distribution matching distillation (DMD). For action-conditioned world models, the teacher becomes a bottleneck: an external video model is agnostic to the actions, whereas the model's own pretrained network drifts in the same manner as the student. We observe that a long rollout need not match a teacher, provided it remains a realistic continuation of its own scene that follows the commanded actions. Realism and scene fidelity can be measured against real-data statistics, which remain valid at any horizon, while action following is preserved by the model's conditional generation loss. We propose Fréchet Forcing, which fine-tunes a world model together with its deployed multi-step sampler under three constraints. Generative anchoring applies the flow-matching loss after a self-generated history ending on real data. Context fidelity, a Fréchet distance (FD) on latent statistics of the free rollout centred on each clip's own ground truth, keeps every rollout faithful to its scene. Reality matching, an FD to real frames in a frozen perceptual space, keeps the generated frames realistic. Because all three targets are derived from short real clips without comparing a rollout against a long recorded future, training requires no teacher, no online critic and no long videos. Fine-tuning MiniWorld-1B, pretrained on 253-frame clips, for at most 36 GPU-hours on 381-frame clips yields rollouts that remain stable beyond 4,000 frames and continue to follow their actions in both robot manipulation and camera-controlled exploration.",
+          "authors": [
+            "Yian Zhao",
+            "Yu Yan",
+            "Hongcan Guo",
+            "Ruochong Zheng",
+            "Jian Zhang",
+            "Jie Chen"
+          ],
+          "published": "2026-10-19T02:12:39Z",
+          "updated": "2026-10-19T02:12:39Z",
+          "url": "https://arxiv.org/abs/2610.25666",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.25764",
+          "version": 1,
+          "title": "ActTime: Action-Conditioned World Modeling for Time Series",
+          "summary": "Time-series models increasingly condition on known future inputs. In controlled systems, some of these inputs are actions that can be changed, compared, and optimized before execution. A model must therefore do more than predict the realized future: it must predict how outcomes change under different actions from the same observed history and support reliable comparison of candidate plans. We introduce ActTime, an action-conditioned world model for time series. Over the observed history, ActTime updates variable-specific latent states through an action-conditioned transition and corrects them using observations. It then rolls the same transition forward under candidate actions to generate future trajectories. Training uses only factual trajectories, without paired alternative-action outcomes or planning supervision. We construct a simulator-grounded evaluation suite across building energy, traffic, greenhouse climate, and inventory management, covering factual prediction, intervention-effect prediction, offline decision making, and closed-loop planning. ActTime ranks first in 12 of 16 domain-task settings. Across eight methods, the mean pairwise model-ranking reversal rate is 17.8% between factual prediction and intervention fidelity, and rises to 28.4% between intervention fidelity and decision ranking. These results show that factual accuracy, intervention fidelity, and decision quality are related but not interchangeable.",
+          "authors": [
+            "Xinxing Zhou",
+            "Xiaojie Yuan",
+            "Yanlong Wen",
+            "Ming Jin"
+          ],
+          "published": "2026-10-19T04:24:17Z",
+          "updated": "2026-10-19T04:24:17Z",
+          "url": "https://arxiv.org/abs/2610.25764",
+          "topics": [
+            "World Models",
+            "AI Agent"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261017T105904Z",
       "createdAt": "2026-10-17T10:59:04.391515+00:00",
@@ -86,7 +184,7 @@
         },
         {
           "id": "2610.21686",
-          "version": 1,
+          "version": 2,
           "title": "MAIA: Anticipating Interaction Anomalies in Contact-Rich Manipulation via Multimodal World Models",
           "summary": "Reliable contact-rich manipulation requires detecting execution deviations early enough for corrective action. Yet most monitoring methods are reactive, identifying anomalies only after they become observable. Anticipating such anomalies is challenging because visual observations only partially reveal physical interaction, while planned actions describe intended motion rather than their actual physical consequences. We address this problem with MAIA, a multimodal framework for anomaly anticipation. Its vision-action-force world model learns nominal interaction dynamics and predicts the visual and force responses of planned actions, while a lightweight anomaly head predicts impending interaction anomalies. To enable systematic evaluation, we introduce CRIA, a real-world multimodal dataset of 2,852 trajectories spanning 18 contact-rich manipulation tasks, with frame-level annotations of anomaly onset and evolution. Experiments on both seen and novel tasks show that MAIA achieves more accurate anomaly discrimination than representative baselines while providing earlier warnings, with bACC scores of 0.765 and 0.710 and median anticipation lead times of 28.0 and 25.1 steps, respectively. Moreover, using these predictions for anomaly-aware action selection improves end-to-end task success from 52.6% to 61.5% without retraining the underlying manipulation policy. These results highlight the value of modeling future physical consequences for proactive anomaly anticipation.",
           "authors": [
@@ -97,7 +195,7 @@
             "Wenzhao Lian"
           ],
           "published": "2026-10-15T11:11:27Z",
-          "updated": "2026-10-15T11:11:27Z",
+          "updated": "2026-10-16T02:37:45Z",
           "url": "https://arxiv.org/abs/2610.21686",
           "topics": [
             "World Models"
