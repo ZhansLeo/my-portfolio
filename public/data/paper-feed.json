@@ -1,10 +1,104 @@
 {
   "version": 1,
-  "lastAttempt": "2026-10-20T17:21:56.869890+00:00",
-  "lastSuccess": "2026-10-20T17:21:56.869890+00:00",
+  "lastAttempt": "2026-10-23T21:32:02.102049+00:00",
+  "lastSuccess": "2026-10-23T21:32:02.102049+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261023T213202Z",
+      "createdAt": "2026-10-23T21:32:02.102049+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.30789",
+          "version": 1,
+          "title": "An Introduction to World Models for Generalist Agents",
+          "summary": "World models have recently emerged as a promising direction toward developing generalist agents capable of understanding, predicting, and interacting with diverse environments. However, despite growing interest, the concept of a world model remains loosely defined, encompassing approaches ranging from predictive dynamics models and learned simulators to models that jointly generate future observations and actions. This introductory paper aims to clarify the concept of world models and provide a unified perspective on their role in developing generalist agents. Starting from the partially observable Markov decision process (POMDP) framework, we connect world modeling to classical control, dynamical systems, signal processing, and reinforcement learning. We introduce different approaches to world modeling, emphasizing the knowledge they capture, their learning objectives, and how they support decision-making. We further explore the relationship between world modeling and policy learning, highlighting how these capabilities can be unified through conditional prediction without requiring separate models. Rather than offering an exhaustive survey of existing methods, this paper focuses on fundamental concepts, modeling principles, and connections, with the goal of providing an accessible and unified introduction to world models for generalist agents.",
+          "authors": [
+            "Zhihui Zhu"
+          ],
+          "published": "2026-10-22T06:08:25Z",
+          "updated": "2026-10-22T06:08:25Z",
+          "url": "https://arxiv.org/abs/2610.30789",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.30436",
+          "version": 1,
+          "title": "Secure Agentic AI and Multimodal Intelligence in 6G Communication Systems",
+          "summary": "Sixth-generation (6G) communication systems are expected to support immersive, intent-driven, and latency-critical services through tight integration of multimodal intelligence, edge computing, and autonomous network control. In this setting, agentic AI systems can reason over heterogeneous inputs, use tools and network functions, coordinate across distributed entities, and adapt to dynamic environments. These capabilities make agentic multimodal intelligence promising for 6G applications such as semantic communications, digital twins, and zero-touch network management, but they also introduce security and privacy risks that extend beyond conventional AI and network security models. Vulnerabilities can propagate across multimodal data pipelines, memory, tools, communication interfaces, and inter-agent coordination loops. We survey multimodal intelligence and agentic AI for 6G cross-layered communication systems from the perspectives of privacy and security. We present a 6G-oriented system view spanning perception, memory, tool use, and multi-agent orchestration; analyze threat models and attack surfaces across sensing, cognition, action, memory, and communication layers; organize existing attacks into a structured taxonomy; and review mitigation strategies including prompt and memory defenses, inter-agent trust mechanisms, secure orchestration, and privacy-preserving learning. We conclude by outlining open research directions for trustworthy multimodal multi-agent 6G systems.",
+          "authors": [
+            "Satyam Gaba",
+            "Devanshu Motwani",
+            "Siva Sai",
+            "Vineet Suri",
+            "Vikas Ranjan",
+            "Vinay Chamola"
+          ],
+          "published": "2026-10-21T20:47:14Z",
+          "updated": "2026-10-21T20:47:14Z",
+          "url": "https://arxiv.org/abs/2610.30436",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：tool use"
+        },
+        {
+          "id": "2610.31474",
+          "version": 1,
+          "title": "Skeleton-Grounded Latent Action Model for Robot World Models",
+          "summary": "Robot world models simulate how environments evolve in response to robot actions. Latent action models enable learning dynamics from videos by encoding visual transitions as proxy actions. However, reconstruction-driven latent actions mix robot motion with object responses and other scene changes, complicating their correspondence with robot controls. We propose SkeLAM, a skeleton-guided latent action model for controllable robot world modeling. SkeLAM decomposes latent actions into a kinematic component grounded by robot skeleton supervision and a residual component retaining complementary visual dynamics. Cross-modal swap reconstruction encourages RGB-derived and skeleton-derived kinematic representations to be interchangeable during video reconstruction. The world model incorporates both components through separate conditioning pathways, while branch dropout reduces its dependence on future-derived residual information. A lightweight adapter maps robot actions to the kinematic space, and subsequent world-model fine-tuning adapts generation to these predicted conditions. At inference, the model generates future observations from the current observation and robot actions. On DROID, SkeLAM reduces end-effector ADE by 19.5% and LPIPS by 11.1% compared with DreamDojo. Motion probing supports kinematic specialization, while qualitative results demonstrate zero-shot human-to-robot motion transfer in generated rollouts. Policy evaluation shows agreement between predicted success rates and those measured in real robot executions.",
+          "authors": [
+            "Qi Lv",
+            "Jiayi Lin",
+            "Yuxin Jiang",
+            "Jianzong Wang",
+            "Xiang Deng",
+            "Mike Shou Zheng"
+          ],
+          "published": "2026-10-22T16:01:33Z",
+          "updated": "2026-10-22T16:01:33Z",
+          "url": "https://arxiv.org/abs/2610.31474",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.29088",
+          "version": 1,
+          "title": "Causal world models under physical parameter shifts",
+          "summary": "World models predict how embodied systems evolve under actions, but their accuracy can degrade when physical conditions move outside the training distribution. We study two components of causal modeling: which inputs a predictor may use, and how its mechanism computes their effects. In a synthetic benchmark with shortcut features, a frozen dependency mask derived from paired interventions reduces mean out-of-distribution (OOD) RMSE from 1.769 for a fully connected predictor to 0.697, close to the generator-oracle mask (0.694). For robot link-mass extrapolation in CausalWorld, with disjoint training and test mass ranges, we develop finger-local world models in which link masses enter inertia and dynamics-bias terms through explicit affine coefficients, actions act through either a learned torque network or the known PD controller, and learned residuals capture contact-related effects. Compared with a separately trained control whose mass inputs are fixed at training means, the known-PD model turns out-of-range masses into a consistent predictive gain: median time-averaged joint R2 over 150-step rollouts rises from 0.609 to 0.727, with improvement in all ten task-seed runs (exact two-sided sign test, p = 0.002). In a shared 100-step forecast, the learned-torque model is competitive with the strongest recurrent robotic world model (RWM) configuration (median joint R2 of 0.755 - 0.768 versus 0.752), whereas supplying out-of-range masses sharply degrades the MLP and recurrent predictors. These results indicate that how a physical parameter enters the dynamics mechanism determines whether its out-of-range value helps or harms prediction.",
+          "authors": [
+            "Chu Lin",
+            "Yi Sun"
+          ],
+          "published": "2026-10-21T02:26:00Z",
+          "updated": "2026-10-21T02:26:00Z",
+          "url": "https://arxiv.org/abs/2610.29088",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261020T172156Z",
       "createdAt": "2026-10-20T17:21:56.869890+00:00",
