@@ -1,10 +1,115 @@
 {
   "version": 1,
-  "lastAttempt": "2026-10-23T21:32:02.102049+00:00",
-  "lastSuccess": "2026-10-23T21:32:02.102049+00:00",
+  "lastAttempt": "2026-10-26T22:46:50.042318+00:00",
+  "lastSuccess": "2026-10-26T22:46:50.042318+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261026T224650Z",
+      "createdAt": "2026-10-26T22:46:50.042318+00:00",
+      "coverage": [
+        "VLM",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.27387",
+          "version": 1,
+          "title": "Training Controllable World Models via Action Influence Maximization",
+          "summary": "Action-conditioned video generative models trained on successful, goal-directed demonstrations tend to ignore the commanded action, rendering a plausible expert-like future regardless of what is asked of them. We trace this failure to training data that lack sufficient action influence. We analyze this metric and prove that it upper bounds the action influence that any model trained on that data can express. Expert demonstrations, whose narrow action distributions let next states be predicted without attending to the action, set a low ceiling that no amount of model capacity alone can raise. Raising it requires collecting different data. We introduce Action Influence Maximization (AIM), an algorithm for actively collecting training data for improving dataset action influence. We compare the performance and data-efficiency of AIM against exploration heuristics and intrinsic-motivation methods on simulated navigation and manipulation tasks. In pixel-based manipulation, AIM is the only method that consistently improves controllability: 500 actively collected episodes added to 3k demonstrations match a world model trained on 300k expert episodes on end-effector controllability, an $85\\times$ reduction in data.",
+          "authors": [
+            "Samuel M. Bateman",
+            "Tenny Yin",
+            "Chongyi Zheng",
+            "Lei Huang",
+            "Brian Wang",
+            "Benjamin Eysenbach",
+            "Jaime Fernández Fisac",
+            "Dhruv Shah"
+          ],
+          "published": "2026-10-19T23:21:18Z",
+          "updated": "2026-10-19T23:21:18Z",
+          "url": "https://arxiv.org/abs/2610.27387",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.28350",
+          "version": 1,
+          "title": "Gated Prototype Transfer for Zero-Support Medical Vision Language Model",
+          "summary": "Realistic few-shot adaptation of medical vision-language models (VLMs) can leave low-prevalence classes without any labeled support. The training-free SS- Text+ solver remains operational in this setting, but its zero-support prototypes receive no visual adaptation and fall back to a purely textual class prototype. We in- troduce Gated Knowledge-Guided Prototype Transfer (GProtoT), a pre-repulsion module that transfers supported-class visual residuals to missing classes using VLM similarity and an ontology-based clinical distance. A validation-free evidence gate scales transfer based on semantic relevance and residual agreement, thereby limiting unsupported extrapolation. In 50 paired realistic one-shot trials on MESSIDOR with FLAIR features, severe and proliferative diabetic retinopathy were absent from every support set. Relative to SS-Text+, gated ProtoT improved missing-class recall by 5.23 points, average class accuracy by 1.37 points, and the missing/supported recall harmonic mean by 1.83 points. It reduced negative- transfer frequency from 46-48% for ungated transfer to 2%, while at the cost of reductions of 1.20 percentage points in supported-class recall and 0.45 percentage points in top-1 accuracy. These results indicate that evidence-based gating provides a safety mechanism for the knowledge source. GProtoT is based on SS- Text+ and requires no gradients, validation data, or additional model inference, of- fering a low-compute path toward accountable adaptation under incomplete clini- cal supervision. Code is available: https://github.com/sumaiyaafridi/GProtoT",
+          "authors": [
+            "Sumaiya Fazal",
+            "Rizwan Qureshi",
+            "Laleh Behjat",
+            "Samira Ebrahimi Kahou"
+          ],
+          "published": "2026-10-20T15:16:09Z",
+          "updated": "2026-10-20T15:16:09Z",
+          "url": "https://arxiv.org/abs/2610.28350",
+          "topics": [
+            "VLM"
+          ],
+          "primaryTopic": "VLM",
+          "related": false,
+          "reason": "主题匹配：vision-language"
+        },
+        {
+          "id": "2610.27851",
+          "version": 2,
+          "title": "LaLa-World: Scaling Latent World Models with Natural Language Actions",
+          "summary": "This paper shows that JEPA-style latent world models (LWMs) can learn across diverse domains and data sources by adopting the language-conditioned interface of video generation models. We establish this approach as an effective and efficient basis for planning with imagination and downstream policy fine-tuning. To this end, we introduce LaLa-World, a Language-conditioned Latent World model that learns from simulation and robot trajectories together with broader image and video data. Two designs make this work. First, we describe both numerical actions and visual changes in language, enabling joint training of a single future predictor across heterogeneous datasets. Second, we build the predictor on a language model, allowing it to interpret language conditions while predicting future latent states. The resulting predictor achieves higher average MPC planning performance than existing LWMs trained separately for each domain or task. Adding image and video data further improves average planning performance and robustness to action phrasing. In a matched comparison with an RAEv2-based video generation model baseline, LaLa-World reaches comparable planning performance with $6\\times$ less training cost and $13.9\\times$ faster planning. Beyond planning, the pretrained LaLa-World serves as an initialization for LaLa-Policy, which jointly predicts actions and future visual representations. LaLa-Policy performs competitively with Cosmos Policy on LIBERO and RoboCasa, with up to $5.5\\times$ faster inference.",
+          "authors": [
+            "Junha Song",
+            "Geonmo Gu",
+            "Jeongeun Park",
+            "Heejeong Nam",
+            "Lucas Maes",
+            "Byeongho Heo",
+            "Dongyoon Han",
+            "Sangdoo Yun"
+          ],
+          "published": "2026-10-20T08:32:14Z",
+          "updated": "2026-10-21T01:29:59Z",
+          "url": "https://arxiv.org/abs/2610.27851",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.28074",
+          "version": 1,
+          "title": "Slot-JEPA: Object-Structured Prediction Interfaces for Latent World Models",
+          "summary": "As a prototypical latent world model, Joint-Embedding Predictive Architectures (JEPAs) provide strong semantic representations. However, dense patch representations expose a redundant interface to downstream predictors, which must implicitly infer spatial organization and temporal correspondence, presenting three challenges. First, object information is distributed across patches, forcing each downstream predictor to redundantly recover object structure that could otherwise be reused across tasks before modeling interactions. Second, the lack of explicit entity correspondence across time makes historical transitions expensive, restricting the predictor's flexibility in utilizing context. Third, without explicit transport structure, existing JEPA models typically use pointwise l1/l2 distances, which are insensitive to spatial displacement when predicted and goal supports are largely disjoint. We propose the Slot-based Joint-Embedding Predictive Architecture (Slot-JEPA), which decomposes dense representations into stable semantic slots and time-varying spatial masks. Pretrained once and frozen downstream, this decomposition exposes a reusable object-structured interface. Building on it, our Transition Memory Predictor (TMP) stores visual transitions as compact masks and retrieves useful context using statistics of corresponding slots. Its two branches separate slot-specific dynamics from shared cross-slot dynamics. We further use Unbalanced Optimal Transport (UOT) to supervise mask prediction and evaluate candidate plans by transporting mass between aligned predicted and goal masks, providing a signal better aligned with spatial progress. Across seven visual-understanding benchmarks, the slot-reconstructed features remain transferable. Slot-JEPA also improves goal-conditioned planning across six planar environments and four robotic arm planning tasks on the REALM-JEPA benchmark.",
+          "authors": [
+            "Peisong Wen",
+            "Qianqian Xu",
+            "Minye Lei",
+            "Siran Dai",
+            "Yang Liu",
+            "Qingming Huang"
+          ],
+          "published": "2026-10-20T11:53:42Z",
+          "updated": "2026-10-20T11:53:42Z",
+          "url": "https://arxiv.org/abs/2610.28074",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261023T213202Z",
       "createdAt": "2026-10-23T21:32:02.102049+00:00",
