@@ -1,10 +1,128 @@
 {
   "version": 1,
-  "lastAttempt": "2026-10-26T22:46:50.042318+00:00",
-  "lastSuccess": "2026-10-26T22:46:50.042318+00:00",
+  "lastAttempt": "2026-10-29T22:52:06.767801+00:00",
+  "lastSuccess": "2026-10-29T22:52:06.767801+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261029T225206Z",
+      "createdAt": "2026-10-29T22:52:06.767801+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.36662",
+          "version": 1,
+          "title": "SWIM: Learning What Matters from Behaviors for JEPA World Models",
+          "summary": "Joint-embedding predictive architectures (JEPAs) enable world models to plan from images by predicting future embeddings. However, their visual prediction objectives do not explicitly incorporate task-relevant state information, so the physical state that determines task progress may not be reliably captured in the latent space. Supervising world models with simulator state can make planning more informative, but it requires deciding which state features matter. Features are typically selected by hand or weighted uniformly, and a uniform weighting gives every standardized state feature equal influence, so redundant coordinates can overcount the same variation, while irrelevant ones can obscure task-relevant differences. To address this limitation, we propose SWIM (State Weighting with Inverse-Dynamics Model), which learns state weights from offline trajectories by predicting recorded actions from current states and observed future displacements. The learned weights quantify each feature's contribution to action prediction and define a weighted state metric for state-supervised training, which we demonstrate by aligning latent and state distances. The inverse-dynamics model is used only during training, so the resulting world model plans from images with no additional planning-time computation. Across five simulated robotic manipulation tasks, SWIM consistently improves planning success over uniform state weighting.",
+          "authors": [
+            "Jiaming Hu",
+            "Shi Bo",
+            "Yan Zheng",
+            "Tian Wang",
+            "Florian Dubost",
+            "Alejandro Mottini",
+            "Junze Liu",
+            "Arvind Srinivasan",
+            "Kai Zhong",
+            "Kun Qian",
+            "Sharon Gao",
+            "Vianne Gao",
+            "Houyu Zhang",
+            "Qingjun Cui"
+          ],
+          "published": "2026-10-27T05:28:28Z",
+          "updated": "2026-10-27T05:28:28Z",
+          "url": "https://arxiv.org/abs/2610.36662",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.36444",
+          "version": 1,
+          "title": "RouteDRAG: Learning to Route and Control Agentic Execution for Multimodal Document RAG",
+          "summary": "Web-based applications increasingly rely on understanding long multimodal documents, where answering questions often requires combining information across pages, tables, and figures. Agentic retrieval-augmented generation addresses these tasks through iterative retrieval and reasoning. However, Agentic execution is not always necessary, introducing additional computation and potentially incorrect answers. Our empirical analysis reveals that Agentic execution provides query-dependent benefits, while additional operations may improve, preserve, or degrade answer accuracy. These findings motivate controlling both Agent invocation and subsequent execution. To address these challenges, we propose RouteDRAG, a learning-based framework comprising four components. Unified Document Index organizes multimodal content into a graph-backed index and derives query representations from initial retrieval. Adaptive Path Routing preserves exact answering and predicts the relative benefit of Agent over shorter execution paths. Dynamic Agent Execution maintains an evolving workspace and refines Planner proposals to control tool use and termination. Sequential Policy Learning first trains operation control from observed outcomes and then trains path routing using the resulting Agent's performance. Across two benchmarks, RouteDRAG achieves an average accuracy improvement of 3.47 percentage points over shorter-path-only execution while assigning only 79.3% of queries to Agent. Notably, it also surpasses uniform Agent execution on both benchmarks while requiring fewer answering calls. Our code is now available at https://github.com/Ereshkigal1/RouteDRAG.",
+          "authors": [
+            "Zekai Chen",
+            "Hao Zhu",
+            "Yu Liu",
+            "Xunkai Li",
+            "Zejian Kang",
+            "Rui Qian",
+            "Quanjiang Li",
+            "Rong-Hua Li"
+          ],
+          "published": "2026-10-27T00:45:49Z",
+          "updated": "2026-10-27T00:45:49Z",
+          "url": "https://arxiv.org/abs/2610.36444",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：tool use"
+        },
+        {
+          "id": "2610.36538",
+          "version": 1,
+          "title": "Agentic Data Sampling Framework for Multilingual ASR via Linguistic-Aware Error-Driven Optimization",
+          "summary": "Multilingual automatic speech recognition (ASR) has achieved rapid progress with large-scale pretrained models and multilingual speech corpora. Previous studies have proved the pivotal role of data sampling in multilingual ASR performance. However, existing sampling strategies largely rely on time-consuming manual, heuristic-based designs. To address this, we propose a linguistic-aware agentic data sampling framework that introduces a data sampling LLM agent into the multilingual ASR training loop. The agent is driven by a linguistically grounded rubric that analyzes ASR errors from phonological, morphological, and syntactic perspectives, and uses the resulting feedback together with training statistics, budget constraints, and algorithm profiles to select domain-level, sample-level, and token-level sampling strategies. This design turns evaluation results into adaptive data-selection decisions rather than treating WER/CER as final endpoints only. We conduct experiments on twelve Common Voice languages using Whisper-medium as the ASR backbone. The results show that our method achieves performance better than full-data training while using less training data and lower computational resources, and substantially accelerates training convergence compared to conventional sampling strategies.",
+          "authors": [
+            "Zhiheng Qian",
+            "Junhao Du",
+            "Jing Peng",
+            "Hanqi Li",
+            "Kunyang Peng",
+            "Feng Xue",
+            "Lu Chen",
+            "Shuai Wang",
+            "Kai Yu"
+          ],
+          "published": "2026-10-27T02:49:36Z",
+          "updated": "2026-10-27T02:49:36Z",
+          "url": "https://arxiv.org/abs/2610.36538",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：llm agent"
+        },
+        {
+          "id": "2610.36759",
+          "version": 1,
+          "title": "DocSkill: Skill-Integrated Agentic Reasoning for Multilingual Multi-Hop Document Question Answering",
+          "summary": "Multilingual multi-hop document question answering (MMHop-DocQA) requires locating and integrating evidence across complex layouts, document pages, and diverse languages. Existing approaches include single-pass processing and adaptive tool use, but learning to coordinate evidence acquisition, cross-page integration, and answer verification remains challenging. To address this challenge, we present DocSkill, an agentic framework with a learned skill-orchestration policy for adaptive evidence acquisition and reasoning. The policy selects, revisits, or skips skills according to the evolving evidence state. To construct supervision for skill orchestration, bounded Monte Carlo Tree Search (MCTS) explores alternative skill trajectories offline. These trajectories provide demonstrations for supervised fine-tuning (SFT) and preference pairs for Direct Preference Optimization (DPO). We further introduce MMHop-DocBench, a multilingual multi-hop document QA dataset with training and test splits, containing 60K QA pairs across 10 languages and eight document domains. Its HopGen pipeline builds hierarchical page-element graphs to derive traceable cross-page evidence paths and generate grounded QA pairs with page- and element-level evidence annotations. Experiments show that DocSkill with Qwen3-VL-8B achieves 41.0 accuracy and 49.2 F1 on MMHop-DocBench, exceeding the strongest evaluated baseline by 5.5 and 6.3 points, respectively, and achieving competitive performance on MMLongBench-Doc and DocBench.",
+          "authors": [
+            "Jing Huang",
+            "Zhiya Tan",
+            "Changtao Miao",
+            "Shutao Gong",
+            "Yang Wang",
+            "Joey Tianyi Zhou",
+            "Jianshu Li",
+            "Ying Yan"
+          ],
+          "published": "2026-10-27T07:14:59Z",
+          "updated": "2026-10-27T07:14:59Z",
+          "url": "https://arxiv.org/abs/2610.36759",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：tool use"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261026T224650Z",
       "createdAt": "2026-10-26T22:46:50.042318+00:00",
