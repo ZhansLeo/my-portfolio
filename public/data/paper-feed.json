@@ -1,10 +1,119 @@
 {
   "version": 1,
-  "lastAttempt": "2026-10-29T22:52:06.767801+00:00",
-  "lastSuccess": "2026-10-29T22:52:06.767801+00:00",
+  "lastAttempt": "2026-11-02T06:29:08.787641+00:00",
+  "lastSuccess": "2026-11-02T06:29:08.787641+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261102T062908Z",
+      "createdAt": "2026-11-02T06:29:08.787641+00:00",
+      "coverage": [
+        "AI Agent",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2610.42146",
+          "version": 1,
+          "title": "Hierarchical World Models with Implicit Dynamics",
+          "summary": "Planning with world models enables test-time adaptation for embodied agents, offering superior generalization over direct policy learning. However, long-horizon tasks remain hindered by cumulative errors and search complexity. Existing hierarchical methods often use rigid macro-actions or latent skills, leading to brittle representations and limited fine-grained control. We introduce ID-WM (Implicit Dynamics World Models), a hierarchical world model that decouples state-space reachability from local control. Our framework utilizes a high-level model to sample feasible transitions across the state manifold and a low-level world model as an inverse dynamics solver to ground these transitions into precise actions. This allows the planner to identify reachable subgoals without being constrained by low-level execution details. By prioritizing local physical feasibility over global behavioral patterns, ID-WM synthesizes novel long-horizon plans from short segments, transcending the specific behavioral modes seen during training. We demonstrate its effectiveness across three navigation and manipulation suites, achieving a 38.5% improvement over state-of-the-art policy and diffusion-based planners. Crucially, by leveraging this hierarchical structure to mitigate compounding errors, our approach yields a 135% performance gain over single-level world model MPC, particularly in complex, unseen configurations for long-horizon tasks. Videos can be viewed at https://id-wm.github.io",
+          "authors": [
+            "Gaoyue Zhou",
+            "Yvonne Wu",
+            "Zichen Jeff Cui",
+            "Nicolas Ballas",
+            "Mido Assran",
+            "Lerrel Pinto",
+            "Yann LeCun"
+          ],
+          "published": "2026-10-30T17:59:25Z",
+          "updated": "2026-10-30T17:59:25Z",
+          "url": "https://arxiv.org/abs/2610.42146",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.41378",
+          "version": 1,
+          "title": "Ask on Demand: Targeted Peer Communication for Parallel Agentic Systems",
+          "summary": "Parallel LLM agents tackle complex tasks by exploring multiple trajectories, yet useful discoveries remain isolated in individual execution histories. Existing sharing methods often select or summarize information before other agents' needs become clear, potentially overlooking details that become important later. We propose Ask on Demand (AOD), a communication framework that enables agents to seek targeted peer assistance when specific information needs arise. Upon an approved request, AOD retrieves relevant evidence from peer execution histories, selects a suitable peer, and generates a response tailored to the request. To determine when such assistance is worthwhile, we train a lightweight gate using paired team continuations, with supervision derived from final team outcomes and inference cost. Experiments on AppWorld and WebShop demonstrate that AOD consistently improves task performance over independent parallel execution while achieving lower inference cost than existing information-sharing baselines. These findings highlight the benefits of aligning peer communication with agents' evolving information needs to achieve more effective and efficient collaboration.",
+          "authors": [
+            "Haofu Yang",
+            "Hongyang Yin",
+            "Ran Bi",
+            "Faguo Wu",
+            "Peng Xue",
+            "Feng Zhou",
+            "Han Zhang"
+          ],
+          "published": "2026-10-30T07:43:03Z",
+          "updated": "2026-10-30T07:43:03Z",
+          "url": "https://arxiv.org/abs/2610.41378",
+          "topics": [
+            "AI Agent"
+          ],
+          "primaryTopic": "AI Agent",
+          "related": false,
+          "reason": "主题匹配：agentic"
+        },
+        {
+          "id": "2610.41330",
+          "version": 1,
+          "title": "Cross-Embodiment Motion Planning by Coupling Body-Agnostic World Model with Differentiable Ego-Dynamics",
+          "summary": "Motion planning in clutter is embodiment-specific: the feasible free space and reachable commands depend on each robot's geometry and dynamics. Existing cross-embodiment policies output normalized commands that disregard these differences, or compensate through per-robot training and distillation. World models can in principle pool cross-embodiment data, yet command-conditioned models bind their latent dynamics to a single action space, while pose-conditioned models omit the mapping from commands to body-specific motion. On flat ground, however, embodiment affects the planner's observations only through the camera ego-motion. This letter proposes Hourglass, an hourglass-shaped architecture that factorizes cross-embodiment motion planning at this interface: a body-agnostic world model and each robot's differentiable ego-dynamics, which map commands to that ego-motion, are coupled only through it. The world model is trained on data pooled across embodiments and camera mounts; each robot's ego-dynamics is a reduced-order template with identified physical parameters. A generalist parameter-conditioned policy is learned once at this junction: each imagined step rolls out the template and then the world model, and imagination training through each robot's template makes the policy body-aware. On seven simulated robots of five locomotion types, the generalist policy outperforms imitation-learning and diffusion-policy baselines on the same world model by 3.8--10.6 percentage points in success rate and matches per-robot specialists without dedicated training, while approaching its parameter-conditioned MPPI teacher within 1.4--2.8 points without an online map. After three minutes of teleoperated driving for identification, the synthetic-data-trained model transfers zero-shot to a real skid-steer robot unseen in training, navigating unseen indoor scenes.",
+          "authors": [
+            "Zhidong Wang",
+            "Zirui Li",
+            "Haoran Xu",
+            "Yujie Yan",
+            "Zitong Shan",
+            "Jingsong Liang",
+            "Han Yu",
+            "Chen Lv"
+          ],
+          "published": "2026-10-30T06:45:17Z",
+          "updated": "2026-10-30T06:45:17Z",
+          "url": "https://arxiv.org/abs/2610.41330",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2610.39232",
+          "version": 2,
+          "title": "Seeing and Imagining as One: Unified Video Generation and 4D Perception for Embodied World Modeling",
+          "summary": "Embodied world models should not only imagine plausible futures, but also perceive the geometric, semantic, and motion structure of the evolving world. We present GenSight, a unified embodied world model that brings future video generation and dense perception into a single pretrained video diffusion transformer. GenSight uses a unified spatiotemporal representation for video, depth, embodiment segmentation, and first-frame-relative 2D flow. Built on a shared DiT backbone, GenSight uses lightweight task modulation to predict all modalities within the same architecture. All tasks are jointly optimized within a unified velocity prediction space. At inference, GenSight supports two complementary modes: multi-step future video generation with aligned dense predictions and single-step dense perception from an observed video. By unifying modality representation, model architecture, and prediction space, GenSight avoids separate modality-specific pipelines and couples appearance, geometry, semantics, and motion in a shared representation. It promotes cross-modal consistency and allows dense perception to benefit from the spatiotemporal priors learned through video generation. Trained on embodied manipulation data spanning multiple robot embodiments and human-hand interactions, GenSight demonstrates strong performance in both video generation and dense 4D perception, highlighting the effectiveness of unifying seeing and imagining for embodied world modeling.",
+          "authors": [
+            "Haitang Feng",
+            "Zhuoman Liu",
+            "Zhennan Wang",
+            "Sheng Wang",
+            "Juelin Li",
+            "Chengzhi Zhao",
+            "Hexiang Wei",
+            "Lin Shao"
+          ],
+          "published": "2026-10-29T02:50:17Z",
+          "updated": "2026-10-30T08:46:14Z",
+          "url": "https://arxiv.org/abs/2610.39232",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261029T225206Z",
       "createdAt": "2026-10-29T22:52:06.767801+00:00",
