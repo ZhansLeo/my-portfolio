@@ -1,10 +1,107 @@
 {
   "version": 1,
-  "lastAttempt": "2026-11-02T06:29:08.787641+00:00",
-  "lastSuccess": "2026-11-02T06:29:08.787641+00:00",
+  "lastAttempt": "2026-11-05T07:03:26.700175+00:00",
+  "lastSuccess": "2026-11-05T07:03:26.700175+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261105T070326Z",
+      "createdAt": "2026-11-05T07:03:26.700175+00:00",
+      "coverage": [
+        "VLM",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2611.04028",
+          "version": 1,
+          "title": "Compression Forcing: Hierarchical History Tokenization Enables Flexible World Models",
+          "summary": "Effective world modeling requires compressing salient history information that facilitates future prediction. However, most existing approaches inherit tokenization and conditioning mechanisms from video generation, where objectives are centered around perceptual realism rather than predictive utility. This discrepancy limits the world model's effectiveness, especially in environments dominated by visual nuisances or task-irrelevant background details. To this end, we introduce Compression Forcing (CF), a general framework that aligns history compression with the predictive objective of world modeling. Compression Forcing features Dynamics-Aware Tokenization (DAT), a novel tokenization method that compresses history observations into a sequence ordered by decreasing dynamics saliency. Built on a diffusion backbone, this structure enables Hierarchical History Guidance (HG-H), allowing selective amplification of dynamics-salient information during inference. Extensive experiments across various environments demonstrate improved prediction fidelity, physical realism, and downstream decision-making performance, establishing Compression Forcing as a highly flexible and effective approach for world modeling.",
+          "authors": [
+            "Siqiao Huang",
+            "Partha Kaushik",
+            "Michael Chen",
+            "Hengkai Pan",
+            "Kaiwen Geng",
+            "Omar Chehab",
+            "Fernando Moreno-Pino",
+            "Max Simchowitz"
+          ],
+          "published": "2026-11-02T22:18:31Z",
+          "updated": "2026-11-02T22:18:31Z",
+          "url": "https://arxiv.org/abs/2611.04028",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2611.03023",
+          "version": 1,
+          "title": "VizDAGuide: Misleading Chart Question Answering in Compact Vision Language Models via DAG-Structured Supervision",
+          "summary": "Misleading charts can lead vision-language models to conclusions that conflict with underlying data. Existing work focuses on inference-time strategies, while training-time supervision remains less explored. We present VizDAGuide, a DAG-structured supervision method for misleading-chart question answering. The method represents intermediate reasoning states and their dependencies as a directed acyclic graph, assigns supervision weights according to their roles, and serializes the graph into a unified training target for open-ended and multiple-choice QA with single-pass inference. Experiments on two benchmarks across Qwen3-VL and InternVL3.5 models show improvements over a content- and weight-matched Linear CoT-SFT baseline on both answer formats. Process-level evaluation shows gains in grounding and operation execution, while ablations indicate that dependency structure and weighted supervision are most effective when combined. These results support DAG-structured weighted supervision for misleading-chart question answering.",
+          "authors": [
+            "Haiyang Zhang",
+            "Sicheng Song",
+            "Zixin Chen",
+            "Jie Gu",
+            "Huiya Ou",
+            "Chenhui Li",
+            "Changbo Wang"
+          ],
+          "published": "2026-11-02T12:20:32Z",
+          "updated": "2026-11-02T12:20:32Z",
+          "url": "https://arxiv.org/abs/2611.03023",
+          "topics": [
+            "VLM"
+          ],
+          "primaryTopic": "VLM",
+          "related": false,
+          "reason": "主题匹配：vision-language"
+        },
+        {
+          "id": "2611.03428",
+          "version": 1,
+          "title": "Toward Uncertainty-Aware, Physics-Grounded Human World Models",
+          "summary": "A robot that acts around people needs a world model of the human: a belief over the person's body state and a dynamics model that predicts where that state goes next. This abstract argues that two published components form exactly these two halves, and specifies how to couple them. KNOWN [1] reconstructs the 3D human body while estimating both aleatoric and epistemic uncertainty in real time (11.6 ms per frame); its aleatoric term identifies unreliable observations, its epistemic term identifies inputs from low-density regions of the training data, and refinement driven by the epistemic term reduces the error on such inputs from 81.3 to 70.3 mm. PhysMoP [2] predicts future body configuration by solving the Euler-Lagrange equations of the body with learned dynamics terms, reducing the 80 ms prediction error from 9.6 to 2.1 mm on Human3.6M and from 12.1 to 0.7 mm on 3DPW. We define the interface between the two, propose three mechanisms by which KNOWN's uncertainty enters PhysMoP, and specify an evaluation protocol on in-the-wild video. No new experimental results are reported here.",
+          "authors": [
+            "Yufei Zhang",
+            "Zijun Cui"
+          ],
+          "published": "2026-11-02T16:50:52Z",
+          "updated": "2026-11-02T16:50:52Z",
+          "url": "https://arxiv.org/abs/2611.03428",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2611.04016",
+          "version": 1,
+          "title": "Physical Experience Builds Continual Spatial World Models",
+          "summary": "World models are increasingly used to support prediction and planning in embodied agents, but the knowledge is usually established before deployment and then carried into later encounters. Continual operation faces a different problem. A familiar environment may change, and the agent must use previous experience without allowing old expectations to override current physical evidence. This study asks what repeated physical experience must contribute for a spatial world model to become progressively more useful rather than simply more persistent. A physics-grounded dynamic maze separates recurring spatial change from the continuous consequences of action. Cross-episode Spatial Change Memory learns relations among environmental transformations, while state-action-outcome experience refines predictions of motion. Structured experience progressively reduces the need for future route correction and transfers to spatial transitions not encountered during learning. The advantage disappears when past changes contain no information about future ones. Continuous navigation further shows that predictive memory changes behavior when a previous decision becomes invalid but leaves behavior unchanged when the decision remains correct. Physical tests expose a complementary limit: correct topology does not guarantee correct action prediction, and accumulated physical experience reduces this mismatch within the modeled dynamics. The results characterize continual world knowledge as experience that improves future prediction and action beyond stored episodes while remaining revisable by the physical outcomes it is intended to predict.",
+          "authors": [
+            "Yuhang Sun"
+          ],
+          "published": "2026-11-02T21:59:48Z",
+          "updated": "2026-11-02T21:59:48Z",
+          "url": "https://arxiv.org/abs/2611.04016",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261102T062908Z",
       "createdAt": "2026-11-02T06:29:08.787641+00:00",
