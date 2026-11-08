@@ -1,10 +1,121 @@
 {
   "version": 1,
-  "lastAttempt": "2026-11-05T07:03:26.700175+00:00",
-  "lastSuccess": "2026-11-05T07:03:26.700175+00:00",
+  "lastAttempt": "2026-11-08T13:43:48.218907+00:00",
+  "lastSuccess": "2026-11-08T13:43:48.218907+00:00",
   "status": "ok",
   "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261108T134348Z",
+      "createdAt": "2026-11-08T13:43:48.218907+00:00",
+      "coverage": [
+        "VLM",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2611.08039",
+          "version": 1,
+          "title": "HITCH: Teaching a Vision-Language Model to Operate a Humanoid through a Whole-Body Harness",
+          "summary": "Enabling vision-language models (VLMs) to control humanoid robots requires both reliable whole-body interfaces and knowledge of how to use the body that carries over across tasks. We present HITCH (Harness Interfaces To Command Humanoids), a harness in which perception returns the 3D position of any point the VLM selects in its image, and execution turns commands for the pelvis, torso, hands, walking, and gaze into whole-body motion with a learned tracker. We find that both measuring the scene and executing commands accurately raise task success. We then fine-tune a VLM on trajectories in which teacher policies solve five base tasks through HITCH, so that it learns how to operate the humanoid. Without task-specific trajectories, the fine-tuned model completes 51% of SIMPLE episodes and 42.5% of HumanoidArena episodes, and adding five trajectories per SIMPLE task raises its SIMPLE success to 95%. On a real G1, it carries a box and walks to a goal without real training data.",
+          "authors": [
+            "Qingzhou Lu",
+            "Chenxin Liu",
+            "Xinming Wang",
+            "Liu Cao",
+            "Yanjiang Guo",
+            "Mengdi Xu",
+            "Jianyu Chen"
+          ],
+          "published": "2026-11-05T13:54:31Z",
+          "updated": "2026-11-05T13:54:31Z",
+          "url": "https://arxiv.org/abs/2611.08039",
+          "topics": [
+            "VLM"
+          ],
+          "primaryTopic": "VLM",
+          "related": false,
+          "reason": "主题匹配：vision-language"
+        },
+        {
+          "id": "2611.08156",
+          "version": 1,
+          "title": "La-JEPA: Compact Robot Policies with Latent World Modeling",
+          "summary": "World-action models adapt pretrained video generators, and vision-language-action models build on pretrained vision-language backbones; both tie policy architecture and inference cost to large transformers designed for generation rather than control. It remains unclear how much these generation-oriented choices affect control. In this work, we introduce Latent Action JEPA (La-JEPA), a compact world-action model whose policy transformer is trained from scratch in the feature space of a pretrained V-JEPA 2.1 encoder. Following Fast-WAM, La-JEPA learns to predict future features jointly with actions during training and generates only actions at inference. Among policies without embodied pretraining, La-JEPA achieves state-of-the-art performance in clean and randomized RoboTwin 2.0 scenes and on LIBERO-Plus with correct instructions, while using far fewer parameters than the strongest competing policies. It runs substantially faster than Fast-WAM at comparable performance and outperforms the closest JEPA-based methods, LeapBot-WA and JEPA-WAM, on LIBERO-Plus and RoboTwin 2.0 without their pretrained policy backbones. On four real-robot tasks, its average success is comparable to pi0.5 and above non-embodied-pretrained baselines. Through a design study of the choices behind La-JEPA, we show that JEPA features outperform video VAE latents, most clearly out of distribution, and that training-time future prediction choices significantly impact the policy even when future prediction is skipped at inference. We correct the LIBERO-Plus instructions, as the officially released evaluator corrupts them for most variants, and re-evaluate several strong open baselines. Without a generative pretrained policy backbone, La-JEPA is better and faster than far larger policies, suggesting that robot foundation models may benefit from architectures designed for control rather than inherited from generation.",
+          "authors": [
+            "Mateo Clémente",
+            "George Z. Xue",
+            "Amin Abyaneh",
+            "Liheng Ma",
+            "Rui Heng Yang",
+            "Tongtong Cao",
+            "Zhanguang Zhang",
+            "Yingxue Zhang"
+          ],
+          "published": "2026-11-05T15:16:38Z",
+          "updated": "2026-11-05T15:16:38Z",
+          "url": "https://arxiv.org/abs/2611.08156",
+          "topics": [
+            "World Models",
+            "VLM"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world modeling"
+        },
+        {
+          "id": "2611.08054",
+          "version": 1,
+          "title": "NutriVisRAG: Multimodal Exemplar Grounding for Nutrient Estimation with Vision-Language Models",
+          "summary": "Diet is a major determinant of health, yet accurate dietary assessment from free-living meal images remains challenging. Existing retrieval-based Vision-Language Model (VLM) approaches to nutrient estimation typically rely on textual food representations, while, to our knowledge, direct grounding on visually similar annotated meals has not been investigated. We present NutriVisRAG, a retrieval-augmented generation framework that uses a vision encoder to retrieve similar meals with known nutritional annotations and provide them as multimodal in-context exemplars for VLM nutrient estimation at inference time, without task-specific fine-tuning. We evaluate NutriVisRAG across four datasets, four VLMs, three retrieval encoders, and two prompting strategies, including free-living meals from adults with insulin-treated diabetes, where carbohydrate estimates are compared against two dietitians' annotations. Across all 96 configurations (4 datasets x 4 VLMs x 3 retrieval encoders x 2 prompting strategies), NutriVisRAG reduced the primary estimation error in 56, with improvements more frequent under whole-meal (35/48) than per-item prompting (21/48). Across the evaluated configurations, the lowest NutriVisRAG error was below the best Vanilla error in 13 of 16 VLM--dataset pairs. For GPT-5.4-mini, under whole-meal prompting, the best-performing retrieval encoder for each dataset reduced the primary error on all four datasets relative to Vanilla, with reductions of 1.7--35.7%. Overall, our results show that grounding in multimodal exemplars comprising images and respective annotations can improve nutrient estimation at inference time without task-specific fine-tuning, although the benefits remain configuration-dependent.",
+          "authors": [
+            "Lubnaa Abdur Rahman",
+            "Ioannis Papathanail",
+            "Maria Panagiotou",
+            "Nefeli Dimitropoulou",
+            "Margret Harðardóttir",
+            "Elisabeth J. den Brok",
+            "Bastiaan E. de Galan",
+            "Stavroula Georgia Mougiakakou"
+          ],
+          "published": "2026-11-05T14:10:35Z",
+          "updated": "2026-11-05T14:10:35Z",
+          "url": "https://arxiv.org/abs/2611.08054",
+          "topics": [
+            "VLM"
+          ],
+          "primaryTopic": "VLM",
+          "related": false,
+          "reason": "主题匹配：vision-language"
+        },
+        {
+          "id": "2611.08185",
+          "version": 1,
+          "title": "Multimodal Hierarchical Mixture-of-Experts for 3D Medical Vision-Language Modeling",
+          "summary": "Medical 3D scans and reports are inherently hierarchical, with diagnostic cues concentrated in specific anatomical regions across multiple levels of organization. Yet, most medical vision-language models ignore this structure and fail to focus on clinically relevant anatomy. We introduce MedHiVE, which combines hierarchical vision-language Soft Mixture-of-Experts (SMoE) with contrastive learning to jointly model fine-grained anatomy and global scan context. To our knowledge, MedHiVE is the first framework to route both vision and text tokens through a two-level SMoE hierarchy organized by anatomical scale, coupling this with report-derived anatomy-level contrastive alignment for 3D medical imaging. This replaces the direct region-text alignment of statically pooled features and vision-only hierarchical routing of prior work with dynamic, slot-based cross-modal information flow across anatomical scales. MedHiVE operates via a two-level, learnable token-routing mechanism, where local image and text features are first routed through a local SMoE and then fused by a global SMoE into unified multimodal representations. Contrastive learning aligns both anatomy-level and global vision-language representations in a unified space. Pre-trained on 25,000+ CT scans with anatomical supervision, MedHiVE consistently surpasses 11 state-of-the-art methods across 6 datasets on 3 tasks: segmentation, classification, and detection, demonstrating the importance of hierarchical modeling. The code for MedHiVE is at github.com/szczurek-lab/MedHiVE.",
+          "authors": [
+            "Gizem Mert",
+            "Szymon Płotka",
+            "Pedro R. A. S. Bassi",
+            "Wenxuan Li",
+            "Zongwei Zhou",
+            "Jarosław B. Ćwikła",
+            "Arkadiusz Sitek",
+            "Ewa Szczurek"
+          ],
+          "published": "2026-11-05T15:40:31Z",
+          "updated": "2026-11-05T15:40:31Z",
+          "url": "https://arxiv.org/abs/2611.08185",
+          "topics": [
+            "VLM"
+          ],
+          "primaryTopic": "VLM",
+          "related": false,
+          "reason": "主题匹配：vision-language"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261105T070326Z",
       "createdAt": "2026-11-05T07:03:26.700175+00:00",
