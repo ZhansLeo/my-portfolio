@@ -1,10 +1,108 @@
 {
   "version": 1,
-  "lastAttempt": "2026-11-18T07:44:44.695644+00:00",
-  "lastSuccess": "2026-11-14T22:37:48.562720+00:00",
-  "status": "error",
-  "message": "最近一次采集未完成，保留上次成功结果，稍后重试。",
+  "lastAttempt": "2026-11-18T20:44:19.282221+00:00",
+  "lastSuccess": "2026-11-18T20:44:19.282221+00:00",
+  "status": "ok",
+  "message": "本次新增 4 篇。",
   "batches": [
+    {
+      "id": "20261118T204419Z",
+      "createdAt": "2026-11-18T20:44:19.282221+00:00",
+      "coverage": [
+        "VLM",
+        "World Models"
+      ],
+      "papers": [
+        {
+          "id": "2611.22880",
+          "version": 1,
+          "title": "Learning Agent-Centric Vision-Language-Action World Models for Autonomous Driving",
+          "summary": "Recent progress in integrating vision-language-action (VLA) models with world modeling has significantly advanced end-to-end autonomous driving by allowing systems to reason about imagined futures instead of merely reacting to current observations. However, most world VLA models generate future frames at the pixel level with plenty of dense visual tokens. Although such generated futures can be visually plausible, they preserve many driving-irrelevant appearance details, i.e., only a small portion of the tokens directly encode critical planning-relevant factors, such as agent geometry, motion dynamics, and interactions. This introduces a significant performance bottleneck. An important question thus arises: what world state should a world VLA model reason over to support planning beyond pixel-level prediction? We argue that planning-oriented world modeling should focus on a compact and structured agent-centric latent state that captures the interactions between objects in the driving scene over time. As such, we introduce AgentWorld, an agent-centric VLA world model that uses discrete agent tokens jointly for reasoning and trajectory planning. Each token is dynamically grounded to a surrounding agent associated with its object's state, such as semantic identity, 3D geometry, motion, and interaction context. AgentWorld learns these tokens through three key processes: explicit geometric grounding, reasoning-oriented supervised fine-tuning, and agent-oriented reinforcement learning. Extensive open-loop and closed-loop experiments under diverse driving scenarios show that AgentWorld enhances planning capabilities, fully exploits visual evidence and agent dynamics, and yields interpretable agent-centric world states.",
+          "authors": [
+            "Guoqing Wang",
+            "Pin Tang",
+            "Xiangxuan Ren",
+            "Chao Ma"
+          ],
+          "published": "2026-11-17T14:53:49Z",
+          "updated": "2026-11-17T14:53:49Z",
+          "url": "https://arxiv.org/abs/2611.22880",
+          "topics": [
+            "World Models",
+            "VLM"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2611.20648",
+          "version": 1,
+          "title": "Competent Autonomous Driving Through Fine Tuning Vision Language Action Models with Symbolic Traffic Rules",
+          "summary": "Vision-language-action (VLA) models offer a unified approach to perception, reasoning, and control for autonomous driving, but accurate action prediction alone does not establish compliance with traffic regulations. This paper presents a rule-guided VLA framework that incorporates symbolic traffic-rule feedback into policy optimisation. The framework combines supervised fine-tuning on expert demonstrations with reinforcement learning (RL) refinement using a reward that encourages encoded-rule compliance while penalising deviations from expert actions. Selected provisions of the United Kingdom Highway Code are formalised as executable first-order logic rules using PyReason, covering speed adaptation, following distance, and road-user priority. A frozen vision-language model extracts scene predicates, which are combined with vehicle-state information to assess the projected consequences of candidate control actions. Offline evaluation on held-out data collected in the CARLA simulator compares three group-based RL methods. The results show improvements in both action prediction accuracy and encoded-rule compliance over the supervised baseline. The best-performing variant increases the overall rule pass rate from 92.9% to 97.6%, with zero observed violations of the encoded road-user-priority check in the evaluated samples. These findings support symbolic rule feedback as a means of improving VLA policy alignment with explicit traffic-rule criteria.",
+          "authors": [
+            "Barkin Dagda",
+            "Vinal Asodia",
+            "Iman Sharifi",
+            "Peng Wei",
+            "Saber Fallah"
+          ],
+          "published": "2026-11-16T07:06:44Z",
+          "updated": "2026-11-16T07:06:44Z",
+          "url": "https://arxiv.org/abs/2611.20648",
+          "topics": [
+            "VLM"
+          ],
+          "primaryTopic": "VLM",
+          "related": false,
+          "reason": "主题匹配：vision-language"
+        },
+        {
+          "id": "2611.21517",
+          "version": 1,
+          "title": "Lazy-MOSAIC: Accelerating Skill-Centric Manipulation Planning with Learned Skill-Effect World Models",
+          "summary": "Long-horizon manipulation tasks require a robot to perform a sequence of physical interactions with its environment, typically combining several different skills. Planning such behaviors efficiently is challenging: given a library of parameterized skills, solutions lie in a vast hybrid space of skill sequences and their parameters, and evaluating each candidate skill's feasibility and effect with a high-fidelity world model such as a physics simulator is computationally expensive. MOSAIC, a recent skill-centric approach, lets the skills guide a non-sequential search toward the regions of this space where they are likely to succeed; however, it pays the full cost of simulation for every parameterized skill it considers. In this work, we introduce Lazy-MOSAIC, a lazy planning framework that instead searches over hypothesized skill outcomes. A cheap learned skill-effect world model predicts, in a fraction of a millisecond, a skill's feasibility and the world state it produces. Lazy-MOSAIC then uses these predictions to focus expensive simulation on promising candidate skills and, when a hypothesis is invalidated, repairs only the affected part of the search, while ensuring that every skill in a returned plan is validated in simulation. We evaluate Lazy-MOSAIC on cluttered-shelf retrieval tasks of increasing difficulty and demonstrate it on a physical robot, showing that it plans substantially faster than baselines with fewer simulator queries, while matching or exceeding their success rate in every setting. Visit skill-mosaic.github.io.",
+          "authors": [
+            "Itamar Mishani",
+            "Mukund Krishnakumar",
+            "Oren Salzman",
+            "Maxim Likhachev"
+          ],
+          "published": "2026-11-16T18:10:52Z",
+          "updated": "2026-11-16T18:10:52Z",
+          "url": "https://arxiv.org/abs/2611.21517",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        },
+        {
+          "id": "2611.21882",
+          "version": 1,
+          "title": "WM-Quant: Rollout-Aware Post-Training Quantization for JEPA-Style World Models",
+          "summary": "We present WM-Quant, to our knowledge, the first post-training quantization (PTQ) framework designed specifically for JEPA-style world models. Although world models typically feature relatively few parameters, action planning algorithms often require thousands of inferences, which can quickly become computationally expensive. PTQ is a natural way to reduce this cost. However, we show that in world models using autoregressive model predictive control (MPC) rollouts, quantization error can compound with each predictor step, resulting in action rankings from the quantized model becoming near-random. WM-Quant addresses this with three components that build on existing PTQ methods: early-encoder precision, control-path preservation, and rollout-aware scaling. Early-encoder precision protects accurate latent state and goal information to mitigate long-term error propagation. Control-path preservation allows the world model predictor to distinguish between fine-grained actions, significantly improving action rankings and execution. Rollout-aware scaling jointly calibrates encoder and per-step predictor activation ranges with respect to an entire rollout rather than a single prediction, reducing the cumulative rollout error. Across multiple world models, environments, and PTQ methods, WM-Quant substantially improves planning success at low bit-widths, approaching full-precision performance at W4A4.",
+          "authors": [
+            "William Hammer",
+            "Andrew Heuer",
+            "Nikhil Krishna",
+            "Matthew Grenier",
+            "Ramtin Zand"
+          ],
+          "published": "2026-11-16T20:51:59Z",
+          "updated": "2026-11-16T20:51:59Z",
+          "url": "https://arxiv.org/abs/2611.21882",
+          "topics": [
+            "World Models"
+          ],
+          "primaryTopic": "World Models",
+          "related": false,
+          "reason": "主题匹配：world model"
+        }
+      ],
+      "note": ""
+    },
     {
       "id": "20261114T223748Z",
       "createdAt": "2026-11-14T22:37:48.562720+00:00",
